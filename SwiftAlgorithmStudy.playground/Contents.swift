@@ -106,52 +106,82 @@ import UIKit
 //    }
 // }
 
-////// MARK: - Challenge 6
+//////// MARK: - Challenge 6
+//
+// var str = "Hello, playground"
+//// var dict = [Character:Bool]()
+// var setData = Set<Character>()
+// func checkDuplicate(string: String) -> String {
+//    //    string.forEach { (char) in
+//    //        dict[char] = false
+//    //    }
+//    //
+//    //    var ansString: String = ""
+//    //    string.forEach { (char) in
+//    //        guard let chk = dict[char] else { return }
+//    //        if !chk {
+//    //            dict[char] = true
+//    //            ansString.append(char)
+//    //        }
+//    //    }
+//
+//    return string.filter { (char) -> Bool in
+//        if setData.contains(char) {
+//            return false
+//        } else {
+//            setData.insert(char)
+//            return true
+//        }
+//    }
+// }
+//
+//// ✔︎ contains를 활용한 문제 풀이 가능하다.
+//
+// print(checkDuplicate(string: "Mississippi"))
+//
+// func challenge6a(string: String) -> String {
+//    let array = string.map { String($0) }
+//    let set = NSOrderedSet(array: array)
+//    let letters = Array(set) as! [String]
+//    return letters.joined() // 빈칸없는 String으로 정리한 뒤 출력 -> 정답!
+// }
+//
+// func challenge6c(string: String) -> String {
+//    var used = [Character: Bool]()
+//
+//    let result = string.filter {
+//        used.updateValue(true, forKey: $0) == nil
+//    }
+//
+//    return result
+// }
 
-var str = "Hello, playground"
-// var dict = [Character:Bool]()
-var setData = Set<Character>()
-func checkDuplicate(string: String) -> String {
-    //    string.forEach { (char) in
-    //        dict[char] = false
-    //    }
-    //
-    //    var ansString: String = ""
-    //    string.forEach { (char) in
-    //        guard let chk = dict[char] else { return }
-    //        if !chk {
-    //            dict[char] = true
-    //            ansString.append(char)
-    //        }
-    //    }
-
-    return string.filter { (char) -> Bool in
-        if setData.contains(char) {
-            return false
-        } else {
-            setData.insert(char)
-            return true
-        }
-    }
-}
-
-// ✔︎ contains를 활용한 문제 풀이 가능하다.
-
-print(checkDuplicate(string: "Mississippi"))
-
-func challenge6a(string: String) -> String {
-    let array = string.map { String($0) }
-    let set = NSOrderedSet(array: array)
-    let letters = Array(set) as! [String]
-    return letters.joined() // 빈칸없는 String으로 정리한 뒤 출력 -> 정답!
-}
-
-func challenge6c(string: String) -> String {
-    var used = [Character: Bool]()
-
-    let result = string.filter {
-        used.updateValue(true, forKey: $0) == nil
-    }
-
-    return result
-}
+////// MARK: - Challenge 7
+///// 문자열 내 스페이스공간을 최대 하나로 응축시켜라
+//
+// func condenseString(str: String) -> String {
+//    var flag: Bool = false
+//    var ans = Array(str)
+//
+//    var index = 0
+//    while true {
+//        if index >= ans.count { break }
+//        if ans[index] == " " {
+//            if flag {
+//                ans.remove(at: index)
+//                index -= 1
+//
+//            } else {
+//                flag = true
+//            }
+//
+//        } else {
+//            flag = false
+//        }
+//        index += 1
+//    }
+//
+//    return String(ans)
+// }
+//
+// print("\(condenseString(str: "s        ad    asd     jqw dioq"))")
