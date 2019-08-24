@@ -107,7 +107,7 @@ import UIKit
 // }
 
 //////// MARK: - Challenge 6
-//
+//// ** 중복된 문자열은 하나씩만 출력하시오. **
 // var str = "Hello, playground"
 //// var dict = [Character:Bool]()
 // var setData = Set<Character>()
@@ -156,7 +156,7 @@ import UIKit
 //    return result
 // }
 
-////// MARK: - Challenge 7
+////// MARK: - Challenge 7 **
 ///// 문자열 내 스페이스공간을 최대 하나로 응축시켜라
 //
 // func condenseString(str: String) -> String {
@@ -185,3 +185,33 @@ import UIKit
 // }
 //
 // print("\(condenseString(str: "s        ad    asd     jqw dioq"))")
+
+////// MARK: - Challenge 8
+// **문자열이 회전 시 일치하는 경우가 있는지 판별하시오.**
+// CASE 1) * 문자열을 탐색하며 비교값과 문자가 동일하면 해당 문자 기준 앞 뒤를 비교한다.
+func isRotatable(first: String, second: String) -> Bool {
+    let char = first[first.startIndex]
+    var endIndexOfFirst = first.endIndex
+
+    for index in second.indices {
+        if char == second[index] {
+            if first[..<endIndexOfFirst] == second[index ..< second.endIndex], first[endIndexOfFirst...] == second[..<index] {
+                return true
+            }
+        }
+        endIndexOfFirst = first.index(before: endIndexOfFirst)
+    }
+    return false
+}
+
+print(isRotatable(first: "asdfg", second: "gasdf"))
+
+// CASE 2) * 문자열 2개를 합한 뒤 contains 사용하는 방법...
+func isRotatable2(first: String, second: String) -> Bool {
+    guard first.count == second.count else { return false }
+    let combined = first + first
+    return combined.contains(second)
+}
+
+// 1: asdfg <-> gasdf
+print(isRotatable2(first: "asdfg", second: "gasdf"))
