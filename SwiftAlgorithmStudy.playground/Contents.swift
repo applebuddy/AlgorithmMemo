@@ -8,9 +8,10 @@ import UIKit
 // var strDic = Set<Character>()
 // var flag = true
 //
-// func challenge0(input: String) -> Bool {
-//    return (input.count == Set(input).count)
-// }
+func challenge0(_ input: String) -> Bool {
+    return (input.count == Set(input).count)
+}
+
 //
 // func challenge1(_ input: String) -> Bool {
 //
@@ -24,7 +25,7 @@ import UIKit
 //    return true
 // }
 //
-// print(challenge1("aas"))
+print(challenge0("as"))
 
 //// MARK: - Challenge 2
 ///// 본 문자열과 reversed 문자열이 동일한지 확인하라
@@ -186,32 +187,80 @@ import UIKit
 //
 // print("\(condenseString(str: "s        ad    asd     jqw dioq"))")
 
-////// MARK: - Challenge 8
-// **문자열이 회전 시 일치하는 경우가 있는지 판별하시오.**
-// CASE 1) * 문자열을 탐색하며 비교값과 문자가 동일하면 해당 문자 기준 앞 뒤를 비교한다.
-func isRotatable(first: String, second: String) -> Bool {
-    let char = first[first.startIndex]
-    var endIndexOfFirst = first.endIndex
+//////// MARK: - Challenge 8
+//// **문자열이 회전 시 일치하는 경우가 있는지 판별하시오.**
+//// CASE 1) * 문자열을 탐색하며 비교값과 문자가 동일하면 해당 문자 기준 앞 뒤를 비교한다.
+// func isRotatable(first: String, second: String) -> Bool {
+//    let char = first[first.startIndex]
+//    var endIndexOfFirst = first.endIndex
+//
+//    for index in second.indices {
+//        if char == second[index] {
+//            if first[..<endIndexOfFirst] == second[index ..< second.endIndex], first[endIndexOfFirst...] == second[..<index] {
+//                return true
+//            }
+//        }
+//        endIndexOfFirst = first.index(before: endIndexOfFirst)
+//    }
+//    return false
+// }
+//
+// print(isRotatable(first: "asdfg", second: "gasdf"))
+//
+//// CASE 2) * 문자열 2개를 합한 뒤 contains 사용하는 방법...
+// func isRotatable2(first: String, second: String) -> Bool {
+//    guard first.count == second.count else { return false }
+//    let combined = first + first
+//    return combined.contains(second)
+// }
+//
+//// 1: asdfg <-> gasdf
+// print(isRotatable2(first: "asdfg", second: "gasdf"))
 
-    for index in second.indices {
-        if char == second[index] {
-            if first[..<endIndexOfFirst] == second[index ..< second.endIndex], first[endIndexOfFirst...] == second[..<index] {
-                return true
+////////// MARK: - Challenge 10
+// * 문자열의 자음, 모음 갯수를 각각 출력하라
+// func printVowelAndConsonants(str: String) -> (Int,Int) {
+//    let chkArr = str.lowercased().components(separatedBy: .whitespaces).joined()
+//    var answer: (Int,Int) = (0,0)
+//    for char in chkArr {
+//        if char == "a" || char == "e" || char == "i" || char == "o" || char == "u" {
+//            answer.0 += 1
+//        } else {
+//            answer.1 += 1
+//        }
+//    }
+//    return answer
+// }
+//
+///// 1) aeiou, ~~~~ 를 String 명시 후 contains 사용방법
+///// 2) 정규표현식을 사용하는 방법
+///// 3) rangeOfCharacter의 활용
+//
+// print("\(printVowelAndConsonants(str: "Swift Coding Challenges"))")
+// print("\(printVowelAndConsonants(str: "Mississippi"))")
+
+////////// MARK: - Challenge 11
+// * 4개 이상 문자가 틀리면 false, 아니면 true를 리턴하라
+func checkString(str: String, str2: String) -> Bool {
+    let strArray = Array(str)
+    let str2Array = Array(str2)
+    if strArray.count != str2Array.count { return false }
+    var count = 0
+
+    for idx in str2Array.indices {
+        if strArray[idx] != str2Array[idx] {
+            count += 1
+            if count > 3 {
+                return false
             }
         }
-        endIndexOfFirst = first.index(before: endIndexOfFirst)
     }
-    return false
+    return true
 }
 
-print(isRotatable(first: "asdfg", second: "gasdf"))
-
-// CASE 2) * 문자열 2개를 합한 뒤 contains 사용하는 방법...
-func isRotatable2(first: String, second: String) -> Bool {
-    guard first.count == second.count else { return false }
-    let combined = first + first
-    return combined.contains(second)
-}
-
-// 1: asdfg <-> gasdf
-print(isRotatable2(first: "asdfg", second: "gasdf"))
+print(checkString(str: "Clamp", str2: "Cramp"))
+print(checkString(str: "Clamp", str2: "Crams"))
+print(checkString(str: "Clamp", str2: "Grams"))
+print(checkString(str: "Clamp", str2: "Grans"))
+print(checkString(str: "Clamp", str2: "Clam"))
+print(checkString(str: "Clamp", str2: "maple"))
