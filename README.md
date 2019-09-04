@@ -2,8 +2,34 @@
 <br>
 <br>
 
-# Swift 알고리즘 스터디 일기장
-## ✯ Swift 알고리즘 기능 & Tip을 정리해갑니다.
+# 알고리즘 스터디 메모, 일기장
+
+<br>
+<br>
+
+# 개요
+- ✯ Swift, C++언어를 활용한 알고리즘 기능 & Tip을 정리해갑니다.
+
+<br>
+<br>
+
+# 목차 
+
+- **[C++](https://github.com/applebuddy/AlgorithmMemo/C++_알고리즘)**
+- **[Swift](https://github.com/applebuddy/AlgorithmMemo/Swift_알고리즘)**
+
+<br>
+<br>
+<br>
+
+# C++_알고리즘
+
+
+<br>
+<br>
+<br>
+
+# Swift_알고리즘
 
 <br>
 <br>
