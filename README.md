@@ -15,8 +15,8 @@
 
 # 목차 
 
-### - [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
-### - [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+### - [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
+### - [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
 
 <br>
 <br>
@@ -24,7 +24,7 @@
 
 # C++_알고리즘
 
-## 자주 사용되는 헤더(Header)
+## ✓ 자주 사용되는 헤더(Header)
 ### <bits/stdc++.h>
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
@@ -58,10 +58,22 @@
  - 특정 영역의 요소를 삭제한다. 
 
 ~~~ swift 
-// removeSubrange 사용 예시
+// removeSubrange 사용 예시)
 // 0 ~ 3 인덱스 사이의 4개의 요소를 삭제
 // ... ..< 등의 범위를 지정해서 사용할 수 있다. 
 Arr.removeSubrange(0…3) 
+
+// removeSubrange 사용 예시 2)
+func rotLeft(a: [Int], d: Int) -> [Int] {
+    var a1 = a
+    let rot = d % a.count
+    a1.removeSubrange(0...rot-1) // removeSubrange의 사용
+    for i in 0 ..< rot {
+        a1.append(a[i])
+    }
+    return a1
+}
+
 ~~~
 
 <br>
