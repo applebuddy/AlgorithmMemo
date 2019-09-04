@@ -25,9 +25,40 @@
 # C++_알고리즘
 
 ## ✓ 자주 사용되는 헤더(Header)
+
+<br>
+
 ### <bits/stdc++.h>
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
+
+<br>
+<br>
+
+## ✓ 자료구조
+
+<br>
+
+### pair 
+- 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
+~~~ C++
+// pair 사용 예)
+pair<int,int> p;
+printf("%d",p.first);
+printf("%d",p.second);
+~~~
+
+<br>
+
+### vector
+- 배열 외로 사용할 수 있는 자료구조, vector
+- push_back(<Value>) 등 으로 값을 넣을 수 있다. 
+
+~~~ C++
+// vector 사용 예)
+// * vector + pair의 사용 예 : 7개의 pair값을 갖는 벡터 정의 예시이다.
+vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
+~~~
 
 <br>
 <br>
@@ -123,7 +154,7 @@ print(“바보”, terminator: “”)
 <br>
 <br>
 
-# ✓ 유용한 클로져 함수(고차함수)
+## ✓ 유용한 클로져 함수(고차함수)
 
 ### sorted()
 - 정렬 메서드
