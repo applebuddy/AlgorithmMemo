@@ -15,8 +15,8 @@
 
 # 목차 
 
-### - [C++](https://github.com/applebuddy/AlgorithmMemo/C++_알고리즘)
-### - [Swift](https://github.com/applebuddy/AlgorithmMemo/Swift_알고리즘)
+### - [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
+### - [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
 
 <br>
 <br>
