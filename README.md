@@ -32,6 +32,51 @@
 
 <br>
 
+### 퀵정렬 알고리즘(sort())
+- 분할정복 알고리즘, O(nlogn)의 복잡도를 가진다.
+- swift, C++ 전부 퀵정렬 메서드를 지원한다.
+  - 메서드 기본 기능은 오름차순 정렬이다.
+  
+- Swift 구현 예시 ▼
+~~~ swift 
+// 오름차순 정렬
+prices.sorted()
+~~~
+
+<br>
+
+- C++ 구현 예시 ▼
+~~~ C++
+// 오름차순 정렬
+sort(prices.begin(), prices.end());
+
+// 3번째 인자로 사용자정의 정렬 함수를 적용할 수 있다. (두개의 인자값, 하나의 Bool 리턴값 형태의 함수)
+sort(prices.begin(), prices.end(), compare());
+
+// 사용자 정의함수, compare 정의 예시)
+bool compareName(string s, string s2) {
+    for(int i=0; i<min(s.length(),s2.length()); i++) {
+        if(s[i] < s2[i]) {
+            return false;
+        } else if(s[i] == s2[i]) {
+            continue;
+        } else {
+            return true;
+        }
+    }
+    
+    if(s.length() > s2.length()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+~~~
+
+
+<br>
+
+
 ### 버블정렬 알고리즘 
 - 양옆 값들을 차례로 비교해가며 정렬해가는 알고리즘
 
@@ -51,6 +96,8 @@ func countSwaps(a: [Int]) {
     print("Last Element: \(arr[arr.count - 1])", terminator: "")
 }
 ~~~
+
+<br>
 
 - C++ 구현 예시 ▼
 ~~~ C++
