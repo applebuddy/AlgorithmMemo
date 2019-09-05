@@ -28,6 +28,17 @@
 <br>
 <br>
 
+## ✓ 수학
+
+<br>
+
+### abs
+- 절대값을 구해준다.
+- Swift, C++ 동일 지원
+
+<br>
+<br>
+
 ## ✓ 기본 정렬 알고리즘
 
 <br>
@@ -180,6 +191,7 @@ vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 
 <br>
 
+
 ### swap()
 - 두개의 요소를 교환한다. 
 
@@ -234,6 +246,26 @@ func rotLeft(a: [Int], d: Int) -> [Int] {
 ## ✓ String 문자열 기능 메서드
 ### components(saparatedBy:)
  - 문자열을 특정 separator 기준으로 잘라서 배열로 만들어준다.
+
+<br>
+
+### index(, offsetBy:)
+- 문자열 인덱스 접근에 사용한다.
+~~~ swift 
+// index(, offsetBy:) 사용 예시
+for i in 0..<a.count {
+        let idx = a.index(a.startIndex, offsetBy: i)
+        let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
+        arr[index] += 1
+}
+~~~
+
+### unicodeScalars (+ Unicode.Scalar)
+- 문자열 요소인 문자(Character)의 아스키 값을 얻어오고 처리하는데 사용할 수 있다. 
+~~~ swift 
+// unicodeScalars, Unicode.Scalar 사용 예시
+let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
+~~~
 
 <br>
 <br>
