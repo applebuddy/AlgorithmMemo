@@ -15,14 +15,74 @@
 
 # 목차 
 
-### - [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
-### - [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+## ✤  [공통](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#공통_알고리즘)
+## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
+## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+
+<br>
+<br>
+<br>
+
+# 공통_알고리즘
+
+<br>
+<br>
+
+## ✓ 기본 정렬 알고리즘
+
+<br>
+
+### 버블정렬 알고리즘 
+- 양옆 값들을 차례로 비교해가며 정렬해가는 알고리즘
+
+- Swift 구현 예시 ▼
+~~~ swift 
+// swift 예시
+func countSwaps(a: [Int]) {
+    var arr = a
+    var cnt = 0
+    for i in arr.indices {
+        for j in 0 ..< arr.count - 1 {
+            if arr[j] > arr[j + 1] { arr.swapAt(j, j + 1); cnt += 1 }
+        }
+    }
+    print("Array is sorted in \(cnt) swaps.")
+    print("First Element: \(arr[0])")
+    print("Last Element: \(arr[arr.count - 1])", terminator: "")
+}
+~~~
+
+- C++ 구현 예시 ▼
+~~~ C++
+// C++ 예시
+void countSwaps(vector<int> a) {
+    int cnt = 0;
+    for(int i=0; i<a.size(); i++) {
+        for(int j=0; j<a.size()-1; j++) {
+            if(a[j]>a[j+1]) {
+                int temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+                cnt++;
+            }
+        }
+    }
+    printf("Array is sorted in %d swaps.\n",cnt);
+    printf("First Element: %d\n",a[0]);
+    printf("Last Element: %d\n",a[a.size()-1]);
+}
+~~~
+
+##
 
 <br>
 <br>
 <br>
 
 # C++_알고리즘
+
+<br>
+<br>
 
 ## ✓ 자주 사용되는 헤더(Header)
 
