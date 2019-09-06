@@ -281,6 +281,39 @@ s.substr(<시작인덱스>,<잘라낼길이>)ㅣ
 
 <br>
 
+### erase()
+- 사용방법
+  - erase(<시작인덱스>) : 시작인덱스 ~ 끝까지 요소를 삭제한다.
+  - erase(<시작인덱스>,<삭제할길이>) : 시작인덱스 기준 특정 삭제할길이만큼 삭제한다.
+
+<br>
+
+~~~ C++
+// erase() 사용 예시)
+
+int main() {
+  string s = "This is an example";
+  cout << s << '\n';
+
+// Erase "This " 
+// -> 0인덱스 기준, 5만큼의 길이를 삭제한다.
+  s.erase(0, 5);  
+  cout << s << '\n';
+
+// Erase ' ' 
+// -> ' ' 최초 공백을 제거한다.
+  s.erase(find(s.begin(), s.end(), ' '));  
+  cout << s << '\n';
+
+ // Trim from ' ' to the end of the string
+ // -> 최초 공백부터 끝까지 삭제한다.
+  s.erase(s.find(' ')); 
+  cout << s << '\n';
+}
+~~~
+
+<br>
+
 <div>
 <img width=600 src="https://user-images.githubusercontent.com/4410021/64427784-f69f3900-d0ec-11e9-9e0a-5c08f48ddc67.png">
 </div>
