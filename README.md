@@ -170,6 +170,8 @@ int arr[26] = {0,};
   - fill_in
   - memset
 
+<br>
+
 ### set 집합
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
@@ -180,6 +182,8 @@ int arr[26] = {0,};
         magaSet.insert(v);
     }
 ~~~
+
+<br>
 
 ### pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
@@ -195,6 +199,25 @@ vec.push_back(make_pair(mp.first, mp.second));
 
 <br>
 
+### tuple
+- 세개 이상의 값을 가지는 자료구조
+~~~ C++
+// tuple 사용 예)
+queue<tuple<int,int,int>> q;
+
+// tuple 값 읽어오기 예시)
+// get<'tuple인덱스'>
+int nx=get<2>(q.front());
+        int ny=get<1>(q.front());
+        int nz=get<0>(q.front());
+
+// tuple 값 쓰기 예시)
+// make_tuple(<값1>,<값2>,<값3>) 형식으로 사용 가능
+q.push(make_tuple(mz,ny,nx));	
+~~~
+
+<br>
+
 ### vector
 - 배열 외로 사용할 수 있는 자료구조, vector
 - push_back(<Value>) 등 으로 값을 넣을 수 있다. 
@@ -203,6 +226,33 @@ vec.push_back(make_pair(mp.first, mp.second));
 // vector 사용 예)
 // * vector + pair의 사용 예 : 7개의 pair값을 갖는 벡터 정의 예시이다.
 vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
+~~~
+
+<br>
+
+### Priority Queue
+- 우선순위 큐
+- 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
+
+~~~ C++
+// 우선순위 큐 사용 예시 
+// greter<int> 설정 시 항상 q.top()에는 queue 내 최솟값이 위치하게 된다.
+priority_queue<int, vector<int>, greater<int>> q;
+    
+    for(auto v : element)
+        q.push(v);
+    
+    while(q.top()<K){
+        if(q.size()==1) return -1;
+        
+	// 큐 내의 가장 작은 값
+        int first = q.top(); 
+        q.pop();
+	
+	// 큐 내에 두번째로 작은 값(가장 작은 값 pop() 이후 남은 값 중 가장 작은 값)
+        int second = q.top(); 
+        q.pop();
+    }
 ~~~
 
 <br>
@@ -487,7 +537,7 @@ func sherlockAndAnagrams(s: String) -> Int {
 
 - Array 기능
   - count : 배열의 크기를 반환한다. 
-  - sorted, filter, map, reduce등 고차함수 사용 가능
+  - sorted(), filter(), map(), reduce()등 고차함수 사용 가능
 
 <br>
 
@@ -497,7 +547,7 @@ func sherlockAndAnagrams(s: String) -> Int {
   - 키(Key) : Hashable프로토콜을 준수하는 값만 사용 가능
   - 값(Value) : Any(어떠한 값이던 사용 가능)
 - 딕셔너리의 키를 접근하면 옵셔널(?)값이 나온다. 
-- 정의 방법 
+- 사용 방법(초기화 방법)
 
 <br>
 
@@ -505,7 +555,27 @@ func sherlockAndAnagrams(s: String) -> Int {
 // 딕셔너리의 초기화 사용 예시)
 let dictionary: [Int:String] = [:]
 let dictionary = [String:Int]()
+
+// 
+for length in 0...arr.count-2 {
+        var dic = [String:Int]()
+        for i in 0..<arr.count-length {
+            let txt = String(arr[i...i+length].sorted())
+            dic[txt] = (dic[txt] ?? 0) + 1
+        }
+
+	// for k in dic 순회 중 딕셔너리의 값 접근은 .value()로 가능
+        for k in dic {
+            Ans += (k.value * (k.value-1) / 2)
+        }
+    }
 ~~~
+
+- Dictionary 기능
+  - values : 현재 딕셔너리 내에 있는 값들을 출력한다. 
+  - sorted(), filter(), map(), reduce()등 고차함수 사용 가능
+  - key, value : 키, 값을 반환한다.
+  
 <br>
 
 ### Set
