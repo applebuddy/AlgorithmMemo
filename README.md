@@ -205,9 +205,46 @@ vec.push_back(make_pair(mp.first, mp.second));
 vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 ~~~
 
+<br>
+<br>
+
 ## ✓ 자주 사용되는 함수
 
 <br>
+<br>
+
+### c_str()
+- 문자열을 출력 가능한 상태로 만들어 준다. 
+- 문자열 데이터를 출력할때 사용한다. 
+~~~ C++
+// c_str() 사용 예시)
+printf("%s",twoStrings("hi","world").c_str());
+~~~
+
+<br>
+
+### substr()
+- 사용방법 
+~~~ C++
+s.substr(<시작인덱스>,<잘라낼길이>)ㅣ
+~~~
+
+<br>
+
+<div>
+<img width=600 src="https://user-images.githubusercontent.com/4410021/64427784-f69f3900-d0ec-11e9-9e0a-5c08f48ddc67.png">
+</div>
+
+<br>
+	
+- 문자열을 일부 잘라 반환해준다.
+
+~~~ C++
+// substr() 사용 예시 
+// 0번째 인덱스부터 5 길이 만큼 문자열을 잘라 반환한다.
+string str = s.substr(0,5); 
+~~~
+
 <br>
 
 ### find()
@@ -238,15 +275,6 @@ for(auto s : s2) {
     }
 ~~~
 
-<br>
-
-### c_str()
-- 문자열을 출력 가능한 상태로 만들어 준다. 
-- 문자열 데이터를 출력할때 사용한다. 
-~~~ C++
-// c_str() 사용 예시)
-printf("%s",twoStrings("hi","world").c_str());
-~~~
 
 <br>
 <br>
