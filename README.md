@@ -32,7 +32,7 @@
 
 <br>
 
-### abs
+### abs()
 - 절대값을 구해준다.
 - Swift, C++ 동일 지원
 
@@ -281,6 +281,22 @@ s.substr(<시작인덱스>,<잘라낼길이>)ㅣ
 
 <br>
 
+<div>
+<img width=600 src="https://user-images.githubusercontent.com/4410021/64427784-f69f3900-d0ec-11e9-9e0a-5c08f48ddc67.png">
+</div>
+
+<br>
+	
+- 문자열을 일부 잘라 반환해준다.
+
+~~~ C++
+// substr() 사용 예시 
+// 0번째 인덱스부터 5 길이 만큼 문자열을 잘라 반환한다.
+string str = s.substr(0,5); 
+~~~
+
+<br>
+
 ### erase()
 - 사용방법
   - erase(<시작인덱스>) : 시작인덱스 ~ 끝까지 요소를 삭제한다.
@@ -310,22 +326,6 @@ int main() {
   s.erase(s.find(' ')); 
   cout << s << '\n';
 }
-~~~
-
-<br>
-
-<div>
-<img width=600 src="https://user-images.githubusercontent.com/4410021/64427784-f69f3900-d0ec-11e9-9e0a-5c08f48ddc67.png">
-</div>
-
-<br>
-	
-- 문자열을 일부 잘라 반환해준다.
-
-~~~ C++
-// substr() 사용 예시 
-// 0번째 인덱스부터 5 길이 만큼 문자열을 잘라 반환한다.
-string str = s.substr(0,5); 
 ~~~
 
 <br>
@@ -440,6 +440,8 @@ for i in 0..<a.count {
         arr[index] += 1
 }
 ~~~
+
+<br>
 
 ### unicodeScalars (+ Unicode.Scalar)
 - 문자열 요소인 문자(Character)의 아스키 값을 얻어오고 처리하는데 사용할 수 있다. 
