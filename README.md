@@ -157,6 +157,30 @@ void countSwaps(vector<int> a) {
 
 <br>
 
+### Array 배열
+- 기본적으로 사용하는 컨네이너
+
+~~~ C++
+// 배열 초기화 방법 1)
+array<int, 26> arr = {0,};
+// 배열 초기화 방법 2)
+int arr[26] = {0,};
+~~~
+- Array 초기화 방법 
+  - fill_in
+  - memset
+
+### set 집합
+- 집합구조, 중복요소가 들어가지 않는다.
+~~~ C++
+// Set 사용 방법 
+    set<string> noteSet;
+    // magazine 벡터요소에 중복문자가 있을시 중복문자는 단 하나씩만 들어간다.
+    for(auto v : magazine) {
+        magaSet.insert(v);
+    }
+~~~
+
 ### pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
 ~~~ C++
@@ -164,6 +188,9 @@ void countSwaps(vector<int> a) {
 pair<int,int> p;
 printf("%d",p.first);
 printf("%d",p.second);
+
+// Vecter에 pair 넣는 방법 
+vec.push_back(make_pair(mp.first, mp.second));
 ~~~
 
 <br>
@@ -176,6 +203,49 @@ printf("%d",p.second);
 // vector 사용 예)
 // * vector + pair의 사용 예 : 7개의 pair값을 갖는 벡터 정의 예시이다.
 vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
+~~~
+
+## ✓ 자주 사용되는 함수
+
+<br>
+<br>
+
+### find()
+- 특정 요소가 있는지 확인 후 해당 요소가 있는 주소를 반환한다.
+- 요소가 없을 시 순회했는 자료구조의 맨 끝 주소(end())를 반환한다. 
+
+~~~ C++ 
+// find() 사용 예시)
+for(auto s : m1) {
+	// m2.end() : map자료구조, m2에 요소가 있다면 m2.end()는 반환하지 않는다
+	// m2.end()는 m2의 끝 주소로 요소가 없음을 나타내는 것
+	// Thus, 아래의 조건문은 요소가 있을 시 "Yes" 문자열을 반환하라는 코드가 된다. 
+            if (m2.find(s) != m2.end()) {
+                return "YES";
+            }
+        }
+~~~
+
+<br>
+
+### insert()
+- map 등의 자료구조에 요소를 넣는데 사용한다. 
+
+~~~ C++
+// insert() 사용 예시)
+for(auto s : s2) {
+        m2.insert(s);
+    }
+~~~
+
+<br>
+
+### c_str()
+- 문자열을 출력 가능한 상태로 만들어 준다. 
+- 문자열 데이터를 출력할때 사용한다. 
+~~~ C++
+// c_str() 사용 예시)
+printf("%s",twoStrings("hi","world").c_str());
 ~~~
 
 <br>
