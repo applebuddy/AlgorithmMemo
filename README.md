@@ -436,6 +436,90 @@ func solution2(_ array: [Int], _ commands: [[Int]]) -> [Int] {
 <br>
 
 ## ✓ 자료구조 
+
+<br>
+<br>
+
+### Array
+- 스위프트의 기본적인 배열
+- 정의 방법 
+
+<br>
+
+~~~ swift 
+// 배열의 초기화 사용 예시)
+let arr: [Int] = []
+let arr2 = [String]()
+let arr3: Array<Float> = Array()
+~~~
+
+- 배열 인덱스, **Array.Index의 접근(읽기) 복잡도 : O(1)**
+  - **String.Index의 접근 복잡도는 O(N)**
+    - 그러므로 String 접근 시 효율성이 필요하다면 배열로 변환 후 접근할 필요가 있다. 
+   
+<br>
+
+~~~ swift
+// 배열 사용 예제
+func sherlockAndAnagrams(s: String) -> Int {
+    
+    // 아래처럼 문자열 s를 배열화 시켜서 다룰 수 있다.
+    let arr = Array(s)
+    
+    var Anagram = 0
+    for length in 0 ... arr.count - 2 {
+        var dic = [String: Int]()
+        for j in 0 ..< arr.count - length {
+	
+	// 스위프트에서는 배열접근 시 아래와 같이 범위(...)를 지정해서 요소들을 접근할 수 있다.
+        for j in 0 ..< arr.count - length {
+            let txt = String(arr[j ... j + length].sorted())
+            dic[txt] = (dic[txt] ?? 0) + 1
+        }
+
+        for k in dic {
+            Anagram += (k.value * (k.value - 1) / 2)
+        }
+    }
+    return Anagram
+}
+~~~
+
+- Array 기능
+  - count : 배열의 크기를 반환한다. 
+  - sorted, filter, map, reduce등 고차함수 사용 가능
+
+<br>
+
+### Dictionary
+- 키(Key)와 값(Value)로 이루어 져 있는 자료구조
+- 키와 값은 특정 타입을 허용한다. 
+  - 키(Key) : Hashable프로토콜을 준수하는 값만 사용 가능
+  - 값(Value) : Any(어떠한 값이던 사용 가능)
+- 딕셔너리의 키를 접근하면 옵셔널(?)값이 나온다. 
+- 정의 방법 
+
+<br>
+
+~~~ swift 
+// 딕셔너리의 초기화 사용 예시)
+let dictionary: [Int:String] = [:]
+let dictionary = [String:Int]()
+~~~
+<br>
+
+### Set
+- 집합 자료구조
+- 집합요소는 각각 중복 요소가 없는 단일 값이다. 
+<br>
+
+~~~ swift 
+// Set 초기화 사용 예시)
+let set = Set<Int>()
+~~~
+
+<br>
+
 ### Queue 
 - 스위프트 Queue의 사용
 - FIFO(Fire In First Out) 방식
