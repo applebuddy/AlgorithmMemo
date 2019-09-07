@@ -22,14 +22,14 @@
 
 <br>
 
-## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
+## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
 <br>
 
-## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-1)
 ### - [배열 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EB%B0%B0%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
