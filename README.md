@@ -261,9 +261,59 @@ vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 <br>
 <br>
 
+## Stack 
+- FILO (First In Last Out) 방식의 자료구조 
+
+### ✤ 선언방식 
+
+~~~ C++
+stack<int> q;
+~~~
+<br>
+
+<br>
+
+### ✤ stack 기능
+- push(<값>) : 요소를 한개 삽입한다.
+- pop() : 요소를 한개 빼낸다.
+- top() : 가장 먼저 pop() 될 요소를 반환한다.
+- empty() : 스택 내 요소가 비었는지 체크한 뒤 Bool값을 반환한다.
+
+<br>
+<br>
+
+## Queue 
+- FIFO (First In First Out) 방식의 자료구조
+
+### ✤ 선언방식
+
+~~~ C++
+queue<int> q;
+~~~
+
+<br>
+
+### ✤ queue 기능
+- push(<값>) : 요소를 한개 삽입한다.
+- pop() : 요소를 한개 빼낸다.
+- top() : 가장 먼저 pop() 될 요소를 반환한다.
+- empty() : 큐 내 요소가 비었는지 체크한 뒤 Bool값을 반환한다.
+
+<br>
+<br>
+
 ## Priority Queue
 - 우선순위 큐
 - 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
+- **컬렉션 내 최솟값, 최댓값을 자주 사용해야할 때 유용**하다.
+
+### 선언방식 
+
+~~~ C++
+priority_queue<int, vector<int>, greater<int>> q;
+~~~
+
+<br>
 
 ~~~ C++
 // 우선순위 큐 사용 예시 
@@ -290,7 +340,10 @@ priority_queue<int, vector<int>, greater<int>> q;
 <br>
 
 ## map
-- 초기화 방법
+
+<br>
+
+### 선언방식
 ~~~ C++
 map<int,int> m;
 ~~~
@@ -320,7 +373,11 @@ if(iter != m.end() && i+1 != (*iter).second+1) {
 ## unordered_map
 - **데이터 양 n > 32 일 경우, map보다 전체적인 성능이 좋다고 한다.**
 - map과 기본적인 동작은 유사하다. 
-- 초기화 방법
+
+<br>
+
+### 선언방법
+
 ~~~ C++
 unordered_map<int,int> m;
 ~~~
