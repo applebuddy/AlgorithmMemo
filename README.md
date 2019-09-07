@@ -61,9 +61,20 @@ prices.sorted()
 // 오름차순 정렬
 sort(prices.begin(), prices.end());
 
+// 오름차순 정렬 (위와 동일)
+sort(prices.begin(), prices.end(), greater<int>());
+
+// 내림차순 정렬
+sort(prices.begin(), prices.end(), less<int>());
+
 // 3번째 인자로 사용자정의 정렬 함수를 적용할 수 있다. (두개의 인자값, 하나의 Bool 리턴값 형태의 함수)
 sort(prices.begin(), prices.end(), compare());
+~~~
 
+<br>
+
+- 정렬 방식을 재정의 하여 사용할 수 도 있다. 
+~~~ C++
 // 사용자 정의함수, compare 정의 예시)
 bool compareName(string s, string s2) {
     for(int i=0; i<min(s.length(),s2.length()); i++) {
@@ -82,6 +93,14 @@ bool compareName(string s, string s2) {
         return false;
     }
 }
+~~~
+
+~~~ C++
+// 익명함수로 바로 정렬 재정의 방식 적용하는 방법
+sort(contests.begin(), contests.end(),
+         [](vector<int> con1, vector<int> con2) {
+             return con1[0] > con2[0];
+         });
 ~~~
 
 
@@ -187,6 +206,7 @@ int arr[26] = {0,};
 
 ### pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
+
 ~~~ C++
 // pair 사용 예)
 pair<int,int> p;
@@ -201,6 +221,7 @@ vec.push_back(make_pair(mp.first, mp.second));
 
 ### tuple
 - 세개 이상의 값을 가지는 자료구조
+
 ~~~ C++
 // tuple 사용 예)
 queue<tuple<int,int,int>> q;
@@ -254,6 +275,35 @@ priority_queue<int, vector<int>, greater<int>> q;
         q.pop();
     }
 ~~~
+
+<br>
+<br>
+
+## ✓ 반복자로 주소 접근하기, iterator
+- 반복자(iterator) 사용방법
+  - <타입>::iterator `반복자이름`;
+- 반복자 활용 예시 ▼
+~~~ C++
+// 반복자(iterator) 정의
+vector<vector<int>>::iterator iter;
+
+// iter 변수의 초기값이 vector contest의 첫 주소값을 가리키게, 주소값 끝까지 순회한다. 
+    for(iter=contests.begin(); iter!=contests.end(); iter++) {
+    // 특정 주소에 위치한 값을 접근하려면 iter 앞에 `*`를 붙이면 된다. 
+        if((*iter)[1]==1) {
+            if(k>0) {
+                Ans += (*iter)[0];
+                k--;
+            } else {
+                Ans -= (*iter)[0];
+            }
+        } else {
+            Ans += (*iter)[0];
+        }
+    }
+~~~
+
+
 
 <br>
 <br>
@@ -520,6 +570,11 @@ print(“바보”, terminator: “”)
 ~~~ swift 
 ans.Sorted { (c1, c2) -> Bool in 
 	// 재정의 부분, true를 리턴 시 두개의 값이 서로 스왑된다.
+}
+
+var sorted = contests.sorted { (v1, v2) in
+        return v1[0] > v2[0]
+	// `return` 없이 v1[0] > v2[0] 만 명시해도 문제없음.
 }
 ~~~
 
