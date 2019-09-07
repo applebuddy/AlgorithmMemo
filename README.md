@@ -58,13 +58,13 @@ prices.sorted()
 
 - C++ 구현 예시 ▼
 ~~~ C++
-// 오름차순 정렬
+// 내림차순 정렬 {최댓값....최솟값}
 sort(prices.begin(), prices.end());
 
-// 오름차순 정렬 (위와 동일)
+// 내림차순 정렬 (위와 동일)
 sort(prices.begin(), prices.end(), greater<int>());
 
-// 내림차순 정렬
+// 오름차순 정렬 {최솟값....최댓값}
 sort(prices.begin(), prices.end(), less<int>());
 
 // 3번째 인자로 사용자정의 정렬 함수를 적용할 수 있다. (두개의 인자값, 하나의 Bool 리턴값 형태의 함수)
