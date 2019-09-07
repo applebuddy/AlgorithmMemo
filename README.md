@@ -297,6 +297,41 @@ string str = s.substr(0,5);
 
 <br>
 
+### stoi(<string>), stol(<string>), stof(<string>), stod(<string>)
+- string에서 다른 타입으로 변환 시 사용
+- Convert String to Int/long/Float/Double
+- 함수원형
+  - **stoi (string to Int(정수형))**
+    - int stoi(const string& str, size_t* idx=0, int base=10)
+  - stol (string to long(정수형))
+    - long stol(const string& str, size_t* idx=0, int base=10)
+  - stof (string to float(실수형))
+    - float stof(const string& str, size_t* idx=0)
+  - stod (string to double(실수형))
+    - double stod(const string& str, size_t* idx=0)
+  
+- 사용 에시 ▼
+~~~ C++
+string str_i = "3";
+string str_li = "2100000000";
+string str_f = "7.2";
+string str_d = "3.141592";
+
+// stoi의 사용 : string to int
+int i = stoi(str_i);
+
+// stol의 사용 : string to long
+long int li = stol(str_li)
+
+// stof의 사용 : string to float
+float f = stof(str_f);
+
+// stod의 사용 : string to double
+double d = stod(str_d);
+~~~
+
+<br>
+
 ### erase()
 - 사용방법
   - erase(<시작인덱스>) : 시작인덱스 ~ 끝까지 요소를 삭제한다.
