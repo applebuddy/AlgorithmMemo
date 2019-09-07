@@ -175,8 +175,9 @@ void countSwaps(vector<int> a) {
 ## ✓ 자료구조
 
 <br>
+<br>
 
-### Array 배열
+## Array 배열
 - 기본적으로 사용하는 컨네이너
 
 ~~~ C++
@@ -188,10 +189,11 @@ int arr[26] = {0,};
 - Array 초기화 방법 
   - fill_in
   - memset
-
+  
+<br>
 <br>
 
-### set 집합
+## set 집합
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
 // Set 사용 방법 
@@ -203,8 +205,9 @@ int arr[26] = {0,};
 ~~~
 
 <br>
+<br>
 
-### pair 
+## pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
 
 ~~~ C++
@@ -218,8 +221,9 @@ vec.push_back(make_pair(mp.first, mp.second));
 ~~~
 
 <br>
+<br>
 
-### tuple
+## tuple
 - 세개 이상의 값을 가지는 자료구조
 
 ~~~ C++
@@ -238,9 +242,11 @@ q.push(make_tuple(mz,ny,nx));
 ~~~
 
 <br>
+<br>
 
-### vector
+## vector
 - 배열 외로 사용할 수 있는 자료구조, vector
+- **탐색속도는 느리나, 삽입속도가 빠른 자료구조**
 - push_back(<Value>) 등 으로 값을 넣을 수 있다. 
 
 ~~~ C++
@@ -250,8 +256,9 @@ vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 ~~~
 
 <br>
+<br>
 
-### Priority Queue
+## Priority Queue
 - 우선순위 큐
 - 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
 
@@ -274,6 +281,45 @@ priority_queue<int, vector<int>, greater<int>> q;
         int second = q.top(); 
         q.pop();
     }
+~~~
+
+<br>
+<br>
+
+## map
+- 초기화 방법
+~~~ C++
+map<int,int> m;
+~~~
+
+<br>
+<br>
+
+- **해쉬 형태의 키,값으로 이루어진 자료구조**
+- **삽입은 느리나, 탐색속도가 빠르다.**
+- sort() 함수 적용이 불가능하다. 
+
+### ✱ map 기능
+- find(<키값>)
+~~~ C++
+// map find() 사용 예시)
+// 키값이 있는지 확인 후 있으면 해당 주소값을 없다면 map m.end() 반환
+map<int,int>::iterator iter = m.find(abs(money-chk));
+if(iter != m.end() && i+1 != (*iter).second+1) {
+    printf("%d %d\n",i+1,(*iter).second+1);
+    return;
+}
+~~~
+
+<br>
+<br>
+
+## unordered_map
+- **데이터 양 n > 32 일 경우, map보다 전체적인 성능이 좋다고 한다.**
+- map과 기본적인 동작은 유사하다. 
+- 초기화 방법
+~~~ C++
+unordered_map<int,int> m;
 ~~~
 
 <br>
@@ -595,6 +641,7 @@ arr2.reduce(0,+)
 
 ### map()
 - 1개의 클로저 인자, 각각의 요소 인자마다 특정 코드 적용을 시킨다.
+- **삽입속도는 느리나, 탐색속도가 빠른 자료구조**
 
 ~~~ swift 
 // map() 사용예시
@@ -615,7 +662,7 @@ func solution2(_ array: [Int], _ commands: [[Int]]) -> [Int] {
 <br>
 <br>
 
-### Array
+## Array
 - 스위프트의 기본적인 배열
 - 정의 방법 
 
@@ -660,13 +707,14 @@ func sherlockAndAnagrams(s: String) -> Int {
 }
 ~~~
 
-- Array 기능
-  - count : 배열의 크기를 반환한다. 
-  - sorted(), filter(), map(), reduce()등 고차함수 사용 가능
+### ✱ Array 기능
+- count : 배열의 크기를 반환한다. 
+- sorted(), filter(), map(), reduce()등 고차함수 사용 가능
 
 <br>
+<br>
 
-### Dictionary
+## Dictionary
 - 키(Key)와 값(Value)로 이루어 져 있는 자료구조
 - 키와 값은 특정 타입을 허용한다. 
   - 키(Key) : Hashable프로토콜을 준수하는 값만 사용 가능
@@ -696,14 +744,38 @@ for length in 0...arr.count-2 {
     }
 ~~~
 
-- Dictionary 기능
-  - values : 현재 딕셔너리 내에 있는 값들을 출력한다. 
-  - sorted(), filter(), map(), reduce()등 고차함수 사용 가능
-  - key, value : 키, 값을 반환한다.
+### ✱ Dictionary 기능
+- values : 현재 딕셔너리 내에 있는 값들을 출력한다. 
+- **sorted(), filter(), map(), reduce()등 고차함수 사용 가능**
+- key, value : 키, 값을 반환한다.
+- **index(forKey:) -> Dictionary.Index** : 딕셔너리의 인덱스를 반환한다.
+~~~ swift
+
+// index(forKey:) 사용 예시)
+// 딕셔너리 변수, dic 초기화 
+var dic = [Int:Int]()
+    for i in cost.indices {
+        dic[cost[i]] = i
+    }
+    
+for i in 0..<cost.count-1 {
+
+// Dictionary 변수인 dic의 특정 키값이 있는지 확인한다 
+// => 있으면 해당 Index, 없으면 nil을 반환한다.
+        let dicIdx = dic.index(forKey: money-cost[i])
+	
+	// ✭ 해당 키값이 존재 했으면 Index가 반환되여 해당 인덱스의 키, 값에 접근할 수 있다. 
+        if dicIdx != nil && i != dic[dicIdx!].value {
+            print(i+1,dic[dicIdx!].value+1, separator: " ")
+            return
+        }
+    }
+~~~
   
 <br>
+<br>
 
-### Set
+## Set
 - 집합 자료구조
 - 집합요소는 각각 중복 요소가 없는 단일 값이다. 
 <br>
@@ -714,8 +786,9 @@ let set = Set<Int>()
 ~~~
 
 <br>
+<br>
 
-### Queue 
+## Queue 
 - 스위프트 Queue의 사용
 - FIFO(Fire In First Out) 방식
 
@@ -727,7 +800,10 @@ struct Queue<T> {
 }
 ~~~
 
-### Stack 
+<br>
+<br>
+
+## Stack 
 - 스위프트 Stack의 사용
 - FILO(Fire In Last Out) 방식
 
