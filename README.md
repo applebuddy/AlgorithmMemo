@@ -16,41 +16,32 @@
 # 목차 
 
 ## ✤  [공통](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#공통_알고리즘)
-### - [수학함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%88%98%ED%95%99)
 ### - [정렬알고리즘](https://github.com/applebuddy/AlgorithmMemo#-%EA%B8%B0%EB%B3%B8-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+### - [수학함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%88%98%ED%95%99)
+
 
 <br>
 
 ## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
-### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
+### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
 <br>
 
 ## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-1)
 ### - [배열 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EB%B0%B0%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [콘솔출력 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [주요 클로저함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9C%A0%EC%9A%A9%ED%95%9C-%ED%81%B4%EB%A1%9C%EC%A0%B8-%ED%95%A8%EC%88%98%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98)
-### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-1)
+
 
 <br>
 <br>
 <br>
 
 # 공통_알고리즘
-
-<br>
-<br>
-
-## ✓ 수학
-
-<br>
-
-### abs()
-- 절대값을 구해준다.
-- Swift, C++ 동일 지원
 
 <br>
 <br>
@@ -166,24 +157,20 @@ void countSwaps(vector<int> a) {
 }
 ~~~
 
-##
+## ✓ 수학
+
+<br>
+
+### abs()
+- 절대값을 구해준다.
+- Swift, C++ 동일 지원
+
 
 <br>
 <br>
 <br>
 
 # C++_알고리즘
-
-<br>
-<br>
-
-## ✓ 자주 사용되는 헤더(Header)
-
-<br>
-
-### <bits/stdc++.h>
-- 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
-- Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
 
 <br>
 <br>
@@ -337,6 +324,17 @@ if(iter != m.end() && i+1 != (*iter).second+1) {
 ~~~ C++
 unordered_map<int,int> m;
 ~~~
+
+<br>
+<br>
+
+## ✓ 자주 사용되는 헤더(Header)
+
+<br>
+
+### <bits/stdc++.h>
+- 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
+- Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
 
 <br>
 <br>
@@ -515,164 +513,6 @@ for(auto s : s2) {
 <br>
 <br>
 
-## ✓ 배열 기능 메서드
-
-<br>
-
-
-### swap()
-- 두개의 요소를 교환한다. 
-
-~~~ swift
-// swap() 사용 예시)
-// j, j+1 인덱스의 요소를 교환한다.
-arr.swapAt(j, j+1) 
-~~~
-
-<br>
-
-### appendContentsOf()
- - 요소를 추가할 수 있다.(배열의 slice 요소 등)
- 
-<br>
-
-### elementsEqual()
- - 요소를 비교한 결과를 반환한다.
-
-<br>
-
-### remove(at: )
- - 특정 위치(정수형 인덱스)의 요소를 삭제한다.
-
-<br>
-
-### removeSubrange<R>
- - 특정 영역의 요소를 삭제한다. 
-
-~~~ swift 
-// removeSubrange 사용 예시)
-// 0 ~ 3 인덱스 사이의 4개의 요소를 삭제
-// ... ..< 등의 범위를 지정해서 사용할 수 있다. 
-Arr.removeSubrange(0…3) 
-
-// removeSubrange 사용 예시 2)
-func rotLeft(a: [Int], d: Int) -> [Int] {
-    var a1 = a
-    let rot = d % a.count
-    a1.removeSubrange(0...rot-1) // removeSubrange의 사용
-    for i in 0 ..< rot {
-        a1.append(a[i])
-    }
-    return a1
-}
-
-~~~
-
-<br>
-<br>
-
-## ✓ String 문자열 기능 메서드
-### components(saparatedBy:)
- - 문자열을 특정 separator 기준으로 잘라서 배열로 만들어준다.
-
-<br>
-
-### index(, offsetBy:)
-- 문자열 인덱스 접근에 사용한다.
-~~~ swift 
-// index(, offsetBy:) 사용 예시
-for i in 0..<a.count {
-        let idx = a.index(a.startIndex, offsetBy: i)
-        let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
-        arr[index] += 1
-}
-~~~
-
-<br>
-
-### unicodeScalars (+ Unicode.Scalar)
-- 문자열 요소인 문자(Character)의 아스키 값을 얻어오고 처리하는데 사용할 수 있다. 
-~~~ swift 
-// unicodeScalars, Unicode.Scalar 사용 예시
-let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
-~~~
-
-<br>
-<br>
-
-## ✓ 콘솔 출력 메서드
-### print(“”, separator:, terminator:)
-- 인자 옵션 기능
-  - separator: String
-    - 문자 출력 사이의 구분자 옵션
-~~~ swift
-print(“my”, “name”, “is”, “applebuddy”, separator: “ / ”)
-//=> “my / name / is / applebuddy  ”
-~~~
-
-  - terminator: String, default = newline() // terminator 미정 시, 한줄 개행이 기본설정 상태
-    - 문자 출력 후 처리 옵션
-    - 기본적으로 terminator 값을 설정하지 않으면 문자 출력 후 개행 처리된다.
-
-~~~ swift
-// 개행 없이 출력 하기 위해선 terminator의 값을 "" 처리 해주면 된다.
-print(“바보”, terminator: “”)
-// => 한줄 개행 없이 “바보” 출력)
-~~~
-
-<br>
-<br>
-
-## ✓ 유용한 클로져 함수(고차함수)
-
-### sorted()
-- 정렬 메서드
-- 두개의 인자값을 통해 비교함수를 재정의할 수도 있음.
-
-~~~ swift 
-ans.Sorted { (c1, c2) -> Bool in 
-	// 재정의 부분, true를 리턴 시 두개의 값이 서로 스왑된다.
-}
-
-var sorted = contests.sorted { (v1, v2) in
-        return v1[0] > v2[0]
-	// `return` 없이 v1[0] > v2[0] 만 명시해도 문제없음.
-}
-~~~
-
-<br>
-<br>
-
-### reduce()
-- 1개의 초기값 인자, 2개의 클로저 인자
-- 초기값 인자를 기준으로 요소를 하나의 결과값으로 합쳐 하나의 최종 값을 도출한다. 
-
-~~~ swift
-// reduce() 사용 예시
-arr.reduce(0) { $0 + $1 }
-arr2.reduce(0,+)
-~~~
-
-<br>
-
-### map()
-- 1개의 클로저 인자, 각각의 요소 인자마다 특정 코드 적용을 시킨다.
-- **삽입속도는 느리나, 탐색속도가 빠른 자료구조**
-
-~~~ swift 
-// map() 사용예시
-// * map, $ 인자값을 사용하여 간결하게 구현할 수 있다. 
-// + sorted() 등 클로저 내 또다른 고차함수의 사용도 가능
-func solution2(_ array: [Int], _ commands: [[Int]]) -> [Int] {
-    return commands.map {
-        Array(array[($0[0] - 1) ... ($0[1] - 1)]).sorted()[$0[2] - 1]
-    }
-}
-~~~
-
-<br>
-<br>
-
 ## ✓ 자료구조 
 
 <br>
@@ -840,4 +680,164 @@ struct Stack<T> {
     }
 }
 ~~~
+
+
+## ✓ 배열 기능 메서드
+
+<br>
+
+
+### swap()
+- 두개의 요소를 교환한다. 
+
+~~~ swift
+// swap() 사용 예시)
+// j, j+1 인덱스의 요소를 교환한다.
+arr.swapAt(j, j+1) 
+~~~
+
+<br>
+
+### appendContentsOf()
+ - 요소를 추가할 수 있다.(배열의 slice 요소 등)
+ 
+<br>
+
+### elementsEqual()
+ - 요소를 비교한 결과를 반환한다.
+
+<br>
+
+### remove(at: )
+ - 특정 위치(정수형 인덱스)의 요소를 삭제한다.
+
+<br>
+
+### removeSubrange<R>
+ - 특정 영역의 요소를 삭제한다. 
+
+~~~ swift 
+// removeSubrange 사용 예시)
+// 0 ~ 3 인덱스 사이의 4개의 요소를 삭제
+// ... ..< 등의 범위를 지정해서 사용할 수 있다. 
+Arr.removeSubrange(0…3) 
+
+// removeSubrange 사용 예시 2)
+func rotLeft(a: [Int], d: Int) -> [Int] {
+    var a1 = a
+    let rot = d % a.count
+    a1.removeSubrange(0...rot-1) // removeSubrange의 사용
+    for i in 0 ..< rot {
+        a1.append(a[i])
+    }
+    return a1
+}
+
+~~~
+
+<br>
+<br>
+
+## ✓ String 문자열 기능 메서드
+### components(saparatedBy:)
+ - 문자열을 특정 separator 기준으로 잘라서 배열로 만들어준다.
+
+<br>
+
+### index(, offsetBy:)
+- 문자열 인덱스 접근에 사용한다.
+~~~ swift 
+// index(, offsetBy:) 사용 예시
+for i in 0..<a.count {
+        let idx = a.index(a.startIndex, offsetBy: i)
+        let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
+        arr[index] += 1
+}
+~~~
+
+<br>
+
+### unicodeScalars (+ Unicode.Scalar)
+- 문자열 요소인 문자(Character)의 아스키 값을 얻어오고 처리하는데 사용할 수 있다. 
+~~~ swift 
+// unicodeScalars, Unicode.Scalar 사용 예시
+let index = Int(a[idx].unicodeScalars.first!.value - Unicode.Scalar("a").value)
+~~~
+
+<br>
+<br>
+
+## ✓ 콘솔 출력 메서드
+### print(“”, separator:, terminator:)
+- 인자 옵션 기능
+  - separator: String
+    - 문자 출력 사이의 구분자 옵션
+~~~ swift
+print(“my”, “name”, “is”, “applebuddy”, separator: “ / ”)
+//=> “my / name / is / applebuddy  ”
+~~~
+
+  - terminator: String, default = newline() // terminator 미정 시, 한줄 개행이 기본설정 상태
+    - 문자 출력 후 처리 옵션
+    - 기본적으로 terminator 값을 설정하지 않으면 문자 출력 후 개행 처리된다.
+
+~~~ swift
+// 개행 없이 출력 하기 위해선 terminator의 값을 "" 처리 해주면 된다.
+print(“바보”, terminator: “”)
+// => 한줄 개행 없이 “바보” 출력)
+~~~
+
+<br>
+<br>
+
+## ✓ 유용한 클로져 함수(고차함수)
+
+### sorted()
+- 정렬 메서드
+- 두개의 인자값을 통해 비교함수를 재정의할 수도 있음.
+
+~~~ swift 
+ans.Sorted { (c1, c2) -> Bool in 
+	// 재정의 부분, true를 리턴 시 두개의 값이 서로 스왑된다.
+}
+
+var sorted = contests.sorted { (v1, v2) in
+        return v1[0] > v2[0]
+	// `return` 없이 v1[0] > v2[0] 만 명시해도 문제없음.
+}
+~~~
+
+<br>
+<br>
+
+### reduce()
+- 1개의 초기값 인자, 2개의 클로저 인자
+- 초기값 인자를 기준으로 요소를 하나의 결과값으로 합쳐 하나의 최종 값을 도출한다. 
+
+~~~ swift
+// reduce() 사용 예시
+arr.reduce(0) { $0 + $1 }
+arr2.reduce(0,+)
+~~~
+
+<br>
+
+### map()
+- 1개의 클로저 인자, 각각의 요소 인자마다 특정 코드 적용을 시킨다.
+- **삽입속도는 느리나, 탐색속도가 빠른 자료구조**
+
+~~~ swift 
+// map() 사용예시
+// * map, $ 인자값을 사용하여 간결하게 구현할 수 있다. 
+// + sorted() 등 클로저 내 또다른 고차함수의 사용도 가능
+func solution2(_ array: [Int], _ commands: [[Int]]) -> [Int] {
+    return commands.map {
+        Array(array[($0[0] - 1) ... ($0[1] - 1)]).sorted()[$0[2] - 1]
+    }
+}
+~~~
+
+<br>
+<br>
+
 
