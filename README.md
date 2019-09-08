@@ -52,8 +52,11 @@
 
 ### 퀵정렬 알고리즘(sort())
 - 분할정복 알고리즘, O(nlogn)의 복잡도를 가진다.
-- swift, C++ 전부 퀵정렬 메서드를 지원한다.
-  - 메서드 기본 기능은 오름차순 정렬이다.
+- swift, C++ 전부 sorting 메서드를 지원한다.
+  - swift : sorted()로 정렬 지원
+  - C++ : sort(시작주소,끝주소,정렬방식)으로 지원
+    - 퀵소트 + 힙소트 방식의 정렬함수
+- 메서드 기본 기능은 오름차순 정렬이다.
   
 - Swift 구현 예시 ▼
 ~~~ swift 
@@ -392,6 +395,26 @@ unordered_map<int,int> m;
 ### <bits/stdc++.h>
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
+
+<br>
+
+### <sstream>
+- stringstream
+- 문자열의 공백 간 분리 기능 사용 예시 ▼
+	
+~~~ C++
+#include <sstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s = "my name is asdf";
+    stringstream ss(s);
+
+    string dat;
+    while (ss >> dat) cout << dat << '\n';
+}
+~~~
 
 <br>
 <br>
