@@ -517,6 +517,22 @@ vector<vector<int>>::iterator iter;
 <br>
 <br>
 
+### min_element, max_element
+- 배열, 벡터 등의 특정 영역 최댓값, 최솟값을 주소로 반환한다.
+- 실제 최솟값, 최댓값을 구하려면 min_element, max_element 함수 앞에 '*'을 붙여 접근 가능하다.
+~~~ swift
+// min_element, max_element 사용예시
+// 실제 최솟값, 최댓값을 구하려면 min_element, max_element 함수 앞에 *을 붙여 접근 가능하다.
+for(int i=0; i<arr.size()-k; i++) {
+        minV = min(minV,abs(*max_element(arr.begin()+i,arr.begin()+i+k)
+        - *min_element(arr.begin()+i,arr.begin()+i+k)));
+        if(minV==0) return 0;
+    }
+~~~
+
+
+<br>
+
 ### c_str()
 - 문자열을 출력 가능한 상태로 만들어 준다. 
 - 문자열 데이터를 출력할때 사용한다. 
@@ -584,13 +600,34 @@ float f = stof(str_f);
 double d = stod(str_d);
 ~~~
 
+
+<br>
+
+### swap(&주소1, &주소2)
+- 두개의 값을 받아 스왑한다. 'mutating'
+- swap 사용 예시 ▼
+~~~ C++
+int minimumSwaps(vector<int> arr) {
+    int Ans = 0;
+    for(int i=0; i<arr.size()-1; i++) {
+        // 이미 정렬되어있으면 다음 숫자로 넘어간다.
+        if(arr[i]==i+1) continue;
+        // 정렬확인이 안된 구간 중 현재 인덱스(i)에 위치해야 하는 숫자, i+1 을 찾아 i위치의 숫자와 스왑한다.
+        vector<int>::iterator iter = find(arr.begin()+i+1, arr.end(), i+1);
+        swap(arr[i],arr[iter-arr.begin()]);
+        // i번째 숫자를 스왑할때마다 횟수를 기록한다.
+        Ans++;
+    }
+    return Ans;
+}
+~~~
+
 <br>
 
 ### erase()
 - 사용방법
   - erase(<시작인덱스>) : 시작인덱스 ~ 끝까지 요소를 삭제한다.
   - erase(<시작인덱스>,<삭제할길이>) : 시작인덱스 기준 특정 삭제할길이만큼 삭제한다.
-
 <br>
 
 ~~~ C++
@@ -723,6 +760,12 @@ func sherlockAndAnagrams(s: String) -> Int {
   - 마지막 요소를 삭제한다. 
 - removeFirst() 
   - 맨 앞의 요소를 삭제한다. 
+- firstIndex(of:<값>) -> Int?
+  - 배열 맨 앞에 나오는 <값>의 정수형 인덱스를 반환한다.
+- firstIndex(of:<값>) -> Int?
+  - 배열 맨 마지막에 나오는 <값>의 정수형 인덱스를 반환한다.  
+  
+  
 <br>
 <br>
 
@@ -862,18 +905,20 @@ if i+1 >= h.count { continue }
    - Swift에서는 stride 전역함수를 이용하여 구현할 수 있다.
    - 부동소수점 이외에 문자열의 인수 등도 셀 수 있다.
 - stride 사용 예시 ▼
+
  ~~~ swift
  // for i stride 사용 예시)
  // for (i = 0.5; i<=15.25; i+=0.3) 과 같은 동작의 stride 사용 예
  for i in stride(from: 0.5, through: 15.25, by: 0.3) {
 
  }
- ~~~
+~~~
+
 <br>
+
 ~~~ swift 
 // 반복문 내의 i-1 ~ 0까지 내려가면서 순회한다. 실행마다 -1씩 감소한다.
 // from, to, by를 통해 증가하며 순회하는 실행도 가능
-~~~ swift 
 Ans = max(Ans, index * h[i])
         for j in stride(from: i-1, through: 0, by: -1) {
             if h[i] > h[j] { break }
