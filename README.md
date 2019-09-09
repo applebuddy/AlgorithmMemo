@@ -603,7 +603,7 @@ double d = stod(str_d);
 
 <br>
 
-### swap(&주소1, &주소2)
+### swap(<값1>, <값2>)
 - 두개의 값을 받아 스왑한다. 'mutating'
 - swap 사용 예시 ▼
 ~~~ C++
