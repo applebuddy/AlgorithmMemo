@@ -708,9 +708,21 @@ func sherlockAndAnagrams(s: String) -> Int {
 ~~~
 
 ### ✱ Array 기능
-- count : 배열의 크기를 반환한다. 
-- sorted(), filter(), map(), reduce()등 고차함수 사용 가능
-
+- count
+  - 배열의 크기를 반환한다. 
+- first?
+  - 배열의 맨 앞 요소를 반환한다.
+- last?
+  - 배열의 맨 마지막 요소를 반환한다.
+- sorted(), filter(), map(), reduce() 등 고차함수 사용 가능(고차함수 탭 참고)
+- append(<값>)
+  - 배열의 맨 뒤에 요소를 추가한다.
+- remove(at:<인덱스>)
+  - <인덱스>번째의 요소를 제거한다. 
+- removeLast()
+  - 마지막 요소를 삭제한다. 
+- removeFirst() 
+  - 맨 앞의 요소를 삭제한다. 
 <br>
 <br>
 
@@ -825,6 +837,54 @@ struct Stack<T> {
 }
 ~~~
 
+<br>
+<br>
+
+## 반복문
+
+<br>
+
+### for <인덱스변수> in <범위, 컬렉션..> {}
+- 지정 영역을 순회하여 반복실행한다. 
+- for문 사용 예시 ▼
+~~~ swift 
+if i+1 >= h.count { continue }
+        for j in i+1 ..< h.count {
+            if h[i] > h[j] { break }
+            index += 1
+            Ans = max(Ans, index * h[i])
+}
+~~~
+<br>
+
+### Stride(from:,through/to:,by:)
+ - *Float 등의 부동소수점을 반복문으로 돌릴 수 없을까?*
+   - Swift에서는 stride 전역함수를 이용하여 구현할 수 있다.
+   - 부동소수점 이외에 문자열의 인수 등도 셀 수 있다.
+- stride 사용 예시 ▼
+ ~~~ swift
+ // for i stride 사용 예시)
+ // for (i = 0.5; i<=15.25; i+=0.3) 과 같은 동작의 stride 사용 예
+ for i in stride(from: 0.5, through: 15.25, by: 0.3) {
+
+ }
+ ~~~
+<br>
+~~~ swift 
+// 반복문 내의 i-1 ~ 0까지 내려가면서 순회한다. 실행마다 -1씩 감소한다.
+// from, to, by를 통해 증가하며 순회하는 실행도 가능
+~~~ swift 
+Ans = max(Ans, index * h[i])
+        for j in stride(from: i-1, through: 0, by: -1) {
+            if h[i] > h[j] { break }
+            index += 1
+            Ans = max(Ans, index * h[i])
+}
+~~~
+
+
+<br>
+<br>
 
 ## ✓ 배열 기능 메서드
 
