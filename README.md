@@ -517,10 +517,37 @@ vector<vector<int>>::iterator iter;
 <br>
 <br>
 
+### memset()
+
+<br>
+
+### fill_n(주소, 초기화 영역, 초기화 값)
+- 배열, 벡터 초기화 변수
+- fill_n 함수 사용 예시) ▼
+~~~ C++
+chk = new bool[41];
+        dp = new Pair[41];
+        fill_n(chk, 41, false);
+        fill_n(dp, 41, make_pair(0, 0));
+~~~
+<br>
+
+### memset(주소, 초기화 값, 초기화영역 메모리 크기)
+- 배열, 벡터 초기화 변수
+- memset 함수 사용 예시) ▼
+~~~ C++ 
+int a[101];
+int main(){
+    int K;
+    memset(a,0,sizeof(a));
+    return 0;
+}
+~~~
+
 ### min_element, max_element
 - 배열, 벡터 등의 특정 영역 최댓값, 최솟값을 주소로 반환한다.
 - 실제 최솟값, 최댓값을 구하려면 min_element, max_element 함수 앞에 '*'을 붙여 접근 가능하다.
-~~~ swift
+~~~ C++
 // min_element, max_element 사용예시
 // 실제 최솟값, 최댓값을 구하려면 min_element, max_element 함수 앞에 *을 붙여 접근 가능하다.
 for(int i=0; i<arr.size()-k; i++) {
@@ -534,8 +561,9 @@ for(int i=0; i<arr.size()-k; i++) {
 <br>
 
 ### c_str()
-- 문자열을 출력 가능한 상태로 만들어 준다. 
-- 문자열 데이터를 출력할때 사용한다. 
+- C++ string 문자열을 C에 호환 가능한 문자배열형으로 변환시켜준다. 
+- 문자열을 출력 가능한 상태로 만들 수 있다.  
+- 문자열 데이터를 출력할때 사용할 수 있다. 
 ~~~ C++
 // c_str() 사용 예시)
 printf("%s",twoStrings("hi","world").c_str());
