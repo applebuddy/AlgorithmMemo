@@ -964,20 +964,20 @@ Ans = max(Ans, index * h[i])
 <br>
 
 
-### swap()
+### swapAt()
 - 두개의 요소를 교환한다. 
 
 ~~~ swift
-// swap() 사용 예시)
+// swapAt() 사용 예시)
 // j, j+1 인덱스의 요소를 교환한다.
 arr.swapAt(j, j+1) 
 ~~~
 
 <br>
 
-### appendContentsOf()
- - 요소를 추가할 수 있다.(배열의 slice 요소 등)
- 
+### append(contentsOf:<SlicedArray, ...>)
+ - `Array[<값..<값>]` 등의 요소를 추가할 수 있다.(배열의 slice 요소 등)
+
 <br>
 
 ### elementsEqual()
