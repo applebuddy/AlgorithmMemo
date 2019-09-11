@@ -785,12 +785,16 @@ func sherlockAndAnagrams(s: String) -> Int {
 ### ✱ Array 기능
 - count
   - 배열의 크기를 반환한다. 
+- min() -> Int?
+  - 요소 내 최솟값을 반환한다. 
+- min() -> Int?
+  - 요소 내 최댓값을 반환한다. 
 - first?
   - 배열의 맨 앞 요소를 반환한다.
 - last?
   - 배열의 맨 마지막 요소를 반환한다.
 - sorted(), filter(), map(), reduce() 등 고차함수 사용 가능(고차함수 탭 참고)
-- append(<값>), append(<범위값>)
+- append(<값>), append(contentsOf: <범위값>)
   - 배열의 맨 뒤에 요소를 추가한다.
 ~~~ swift 
 func appnd() {
@@ -1183,13 +1187,31 @@ print(“바보”, terminator: “”)
 <br>
 
 ## ✓ 유용한 클로져 함수(고차함수)
+ 
+<br>
 
-### sorted()
+### filter()
+- 특정 조건을 충족하는 요소만 필터링하여 배열에 저장한다. 
+~~~ swift 
+let A: [Int] = [-1,1,-1,2]
+let sorted = A.filter { $0 > 0 } // [1,2]
+~~~
+
+<br>
+
+### sort() `mutating`
+- 정렬 메서드
+- 해당 배열의 값 자체를 변경한다. 
+
+<br>
+
+### sorted(), sorted(by: )
 - 정렬 메서드
 - 두개의 인자값을 통해 비교함수를 재정의할 수도 있음.
-
+- sorted(by: )는 인자값을 >, < 으로 받아 내림차순 or 오름차순 정렬을 실행한다.
+- sorted() 사용 예시 ▼
 ~~~ swift 
-ans.Sorted { (c1, c2) -> Bool in 
+ans.sorted { (c1, c2) -> Bool in 
 	// 재정의 부분, true를 리턴 시 두개의 값이 서로 스왑된다.
 }
 
@@ -1197,6 +1219,18 @@ var sorted = contests.sorted { (v1, v2) in
         return v1[0] > v2[0]
 	// `return` 없이 v1[0] > v2[0] 만 명시해도 문제없음.
 }
+~~~
+
+<br>
+
+- sorted(by:) 사용 예시 ▼
+~~~ swift
+// sorted(by: ) 사용 예시
+// 위와 동일한 내림차순 결과를 보여준다. 
+sorted = con.sorted(by: >)
+
+// 오름차순 결과를 보여준다. 
+sorted = con2.sorted(by: <)
 ~~~
 
 <br>
