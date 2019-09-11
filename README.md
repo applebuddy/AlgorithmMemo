@@ -30,7 +30,13 @@
 <br>
 
 ## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
-### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-1)
+### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
+- [Array](https://github.com/applebuddy/AlgorithmMemo#array)
+- [Dictionary](https://github.com/applebuddy/AlgorithmMemo#dictionary)
+- [Set](https://github.com/applebuddy/AlgorithmMemo#set)
+- [Queue](https://github.com/applebuddy/AlgorithmMemo#queue-1)
+- [Stack](https://github.com/applebuddy/AlgorithmMemo#stack-1)
+### - [반복문](https://github.com/applebuddy/AlgorithmMemo#%EB%B0%98%EB%B3%B5%EB%AC%B8)
 ### - [배열 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EB%B0%B0%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [콘솔출력 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
@@ -740,6 +746,8 @@ let arr2 = [String]()
 let arr3: Array<Float> = Array()
 ~~~
 
+<br>
+
 - 배열 인덱스, **Array.Index의 접근(읽기) 복잡도 : O(1)**
   - **String.Index의 접근 복잡도는 O(N)**
     - 그러므로 String 접근 시 효율성이 필요하다면 배열로 변환 후 접근할 필요가 있다. 
@@ -772,6 +780,8 @@ func sherlockAndAnagrams(s: String) -> Int {
 }
 ~~~
 
+<br>
+
 ### ✱ Array 기능
 - count
   - 배열의 크기를 반환한다. 
@@ -780,14 +790,117 @@ func sherlockAndAnagrams(s: String) -> Int {
 - last?
   - 배열의 맨 마지막 요소를 반환한다.
 - sorted(), filter(), map(), reduce() 등 고차함수 사용 가능(고차함수 탭 참고)
-- append(<값>)
+- append(<값>), append(<범위값>)
   - 배열의 맨 뒤에 요소를 추가한다.
+~~~ swift 
+func appnd() {
+    var arr = [Int]()
+    arr.append(3) // arr 뒤에 3을 추가한다. -> [3]
+    arr.append(2) // arr 뒤에 2을 추가한다. -> [3,2]
+    print(arr) // -> [3,2]
+    
+    var arr = [1,2,3,4,5,6]
+    print("nowArray elements : \(arr)") // -> [1,2,3,4,5,6]
+    arr.removeSubrange(0...1) // 0 ~ 1번째 인덱스의 값을 삭제
+    print("arr.removeSubrange(0...1) : \(arr)") // -> [3,4,5,6]
+    
+    arr.append(contentsOf: arr[0...1]) // 현재 arr의 0 ~ 1번째 인덱스 영역의 값을 arr 뒤에 추가한다.
+    print("arr.append(contentsOf: arr[0...1]) : \(arr)") // -> [3,4,5,6,3,4]
+}
+~~~
+
+<br>
+
+- insert(_ newElement: Element, at i: Int)
+  - 특정 인덱스에 값을 추가한다. 
+    - (at: <값>)
+~~~ swift
+func insertion() {
+    var arr = [1,2,3]
+    print("nowArray elements : \(arr)") // -> [1,2,3]
+    
+    arr.insert(99, at: 0) // 맨 앞에 99를 추가한다.
+    print("arr.insert(99, at: 0) : \(arr)") // -> [99, 1, 2, 3]
+    
+    arr.insert(99, at: arr.endIndex) // 맨 뒤에 99를 추가한다.
+    print("arr.insert(99, at: arr.count) : \(arr)") // -> [99, 1, 2, 3, 99]
+}
+~~~
+
+<br>
+  
 - remove(at:<인덱스>)
   - <인덱스>번째의 요소를 제거한다. 
+~~~ swift 
+func rm() {
+    var arr = [1,2,3,4,5,6]
+    print("nowArray elements : \(arr)")
+    
+    arr.remove(at: 0)
+    print("arr.remove(at: 0) : \(arr)") // => [2,3,4,5,6]
+    
+    arr.remove(at: arr.count-1)
+    print("arr.remove(at: arr.count-1) : \(arr)") // => [2,3,4,5]
+}
+~~~
+
+<br>
+
 - removeLast()
   - 마지막 요소를 삭제한다. 
+~~~ swift 
+func rmLast() {
+    var arr = [1,2,3,4,5,6]
+    print("nowArray elements : \(arr)")
+    
+    arr.removeLast()
+    print("arr.removeLast() : \(arr)") // => [1,2,3,4,5]
+}
+~~~
+
+<br>
+
 - removeFirst() 
   - 맨 앞의 요소를 삭제한다. 
+~~~ swift 
+func rmFirst() {
+    var arr = [1,2,3,4,5,6]
+    print("nowArray elements : \(arr)")
+    
+    arr.removeFirst()
+    print("arr.removeFirst() : \(arr)") // => [2,3,4,5,6]
+}
+~~~
+
+<br>
+
+- removeAll()
+  - 배열 내 모든 요소를 제거하여 빈 배열로 만든다. 
+~~~ swift 
+func rmAll() {
+    var arr = [1,2,3,4,5,6]
+    print("nowArray elements : \(arr)")
+    
+    arr.removeAll()
+    print("removeAll() : \(arr)") // []
+}
+~~~
+
+<br>
+
+- removeSubrange
+  - 특정 범위 인덱스의 값들을 제거한다.
+~~~ swift
+func rmSubrange() {
+    var arr = [1,2,3,4,5,6]
+    
+    arr.removeSubrange(0...1) // 0 ~ 1번째 인덱스의 값을 삭제
+    print("arr.removeSubrange(0...1) : \(arr)") // [3,4,5,6]
+}
+~~~
+
+<br>
+
 - firstIndex(of:<값>) -> Int?
   - 배열 맨 앞에 나오는 <값>의 정수형 인덱스를 반환한다.
 - firstIndex(of:<값>) -> Int?
@@ -826,6 +939,8 @@ for length in 0...arr.count-2 {
         }
     }
 ~~~
+
+<br>
 
 ### ✱ Dictionary 기능
 - values : 현재 딕셔너리 내에 있는 값들을 출력한다. 
@@ -911,7 +1026,7 @@ struct Stack<T> {
 <br>
 <br>
 
-## 반복문
+## ✓ 반복문
 
 <br>
 
