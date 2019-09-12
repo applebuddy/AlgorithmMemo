@@ -166,7 +166,69 @@ void countSwaps(vector<int> a) {
 }
 ~~~
 
+<br>
+
+### 에라토스 테네스의 체
+- 소수를 가벼운 복잡도로 구할 수 있는 알고리즘
+- 2부터 시작하여 소수의 배수 값들은 소수아님 처리하며 체로 소수가 아닌 값들을 걸러낸다.
+- 에라토스 테네스의 체 사용 예시) ▼
+
+~~~ swift
+// swift 에라토스테네스의 체 사용 예시
+func findPrime(_ n:Int) -> Int {
+    var chk = [Bool](repeating: true, count: n+1)
+    var Ans = 0
+    
+    // 에라토스 테네스의 체 구현 예시)
+    for i in stride(from: 2, through: Int(sqrt(Double(n))), by: 1) {
+        if chk[i] == true {
+            for j in stride(from: i+i, through: n, by: i) {
+                chk[j] = false
+            }
+        }
+    }
+    
+    for i in 2...n {
+        if chk[i] == true { Ans += 1 }
+    }
+    return Ans
+}
+~~~
+
+
 ## ✓ 수학
+
+<br>
+
+### 제곱근 (Square Root)
+- 어떤 수, x를 두개 곱했을때 a가 된다면 x를 a의 제곱근이라 한다. 
+- a에 root를 씌우면 제곱근이 나온다. 
+- 제곱근 (Square Root) 사용예시 ▼
+
+~~~ C++
+#include <cmath>
+int n = 64;
+int main() {
+    int num = sqrt(n);
+    return 0;
+}
+~~~
+~~~ swift 
+import foundation 
+
+func makeSqut(_ num: Int) -> Int {
+    // swift는 강타입 언어로, Int로 직접 형변환을 해준 뒤 값을 처리할 수 있다.
+    // 1번째 sqrt 처리 방법
+    var sqt = Int(sqrt(Double(num)))
+    
+    // 2번째 sqrt 처리 방법
+    var sqt2 = Int(Double(n).squareRoot())
+    
+    return sqt
+}
+
+~~~
+
 
 <br>
 
@@ -778,6 +840,17 @@ func sherlockAndAnagrams(s: String) -> Int {
     }
     return Anagram
 }
+~~~
+
+<br>
+
+### 초기화 방법 
+- Array<타입>(repeating:<반복값>,count:<할당크기>)
+- Array Initialzation Example ▼
+~~~ swift
+// 배열 초기화 예시)
+// chk: [Bool] 배열에 n+1의 크기만큼 true값을 적용한다. 
+var chk = [Bool](repeating: true, count: n+1)
 ~~~
 
 <br>
