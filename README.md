@@ -266,11 +266,6 @@ long flippingBits(long n) {
 
 <br>
 
-### sqrt()
-- 루트(root )값을 씌어 준다. 
-
-<br>
-
 ### min(<값1>, <값2>), max(<값1>,<값2>)
 - 두 수 사이의 최솟값, 최댓값을 구해준다. 
 
@@ -331,11 +326,28 @@ int arr[26] = {0,};
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
 // Set 사용 방법 
+    #include <set>
     set<string> noteSet;
     // magazine 벡터요소에 중복문자가 있을시 중복문자는 단 하나씩만 들어간다.
     for(auto v : magazine) {
-        magaSet.insert(v);
+        magaSet.insert(v); // set 자료구조에 요소 삽입
     }
+~~~
+
+~~~ C++
+#include <set>
+#include <vector>
+using namespace std;
+
+int frogRiverOne(int X, vector<int> &A) {
+    
+    set<int> setV;
+    for(int i=0; i<int(A.size()); i++) {
+        setV.insert(A[i]);
+        if(int(setV.size()) == X) return i;
+    }
+    return -1;
+}
 ~~~
 
 <br>
@@ -1111,10 +1123,80 @@ for i in 0..<cost.count-1 {
 - 집합요소는 각각 중복 요소가 없는 단일 값이다. 
 <br>
 
+### Set 초기화 방법
+- Set 초기화 방법 예시) ▼
 ~~~ swift 
 // Set 초기화 사용 예시)
 let set = Set<Int>()
+let set2: Set = [1,2,3]
+let set3: Set<String> = []
 ~~~
+
+<br>
+
+### Set 기능
+- insert(<값>)
+  - Set 자료구조에 요소를 삽입한다. 
+~~~ swift 
+var setV = Set<Int>()
+setV.insert(3) // 요소 삽입
+setV.insert(3) // 요소 삽입 시 중복값은 취급안함 
+~~~
+
+<br>
+
+
+- index(of:<값>) -> Int? 
+  - 특정 값의 인덱스를 반환
+~~~ swift 
+var idx = setV.index(of: 3)! //index(of:) 사용 후 만약 해당 값이 존재하지 않으면 nil을 반환한다.
+~~~
+
+<br>
+
+- remove(<값>), remove(at:<Set.Index>)
+  - 특정 값, 특정 위치의 요소를 제거한다. 
+~~~ swift
+var setV: Set = ["1", "2", "3"]
+setV.remove("3") // 특정 값을 인자로 받아 해당 값을 제거
+setV.remove(at: setV.index(of:"1")!) // 특정 정수형 인덱스에 위치한 값을 제거(Set.Index)
+~~~
+
+<br>
+
+- removeAll()
+  - Set 자료구조 내 모든 요소를 지운다. 
+~~~ swift 
+setV.removeAll() // => [] 
+~~~
+
+<br>
+
+- **집합연산 기능**
+  - 합집합, union
+  - 교집합, intersection
+  - 여집합, subtracting
+  - 합집합 - 여집합, symmetricDifference
+
+~~~swift
+
+var a: Set = [1,2,3]
+var b: Set = [3,4,5]
+
+// 집합 연산 사용예시
+// 합집합 연산
+a.union(b) // => [1,2,3,4,5]
+
+// 교집합 연산
+a.intersection(b) // => [3]
+
+// 여집합 연산
+a.subtracting(b) // => [1,2]
+
+// 합집합 - 교집합 연산
+a.symmetricDiffernce(b) // => [1,2,4,5]
+~~~
+
 
 <br>
 <br>
