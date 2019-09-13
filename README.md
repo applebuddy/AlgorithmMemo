@@ -445,7 +445,8 @@ queue<int> q;
 ### 선언방식 
 
 ~~~ C++
-priority_queue<int, vector<int>, greater<int>> q;
+priority_queue<int, vector<int>, greater<int>> q; // q.top은 queue 내의 가장 작은 값
+priority_queue<int, vector<int>, less<int>> q; // q.top은 queue 내의 가장 큰 값
 ~~~
 
 <br>
@@ -551,7 +552,7 @@ int main() {
 <br>
 <br>
 
-## ✓ 반복자로 주소 접근하기, iterator
+## ✓ iterator, 반복자로 주소 접근하기
 - 반복자(iterator) 사용방법
   - <타입>::iterator `반복자이름`;
 - 반복자 활용 예시 ▼
@@ -575,7 +576,50 @@ vector<vector<int>>::iterator iter;
     }
 ~~~
 
+### iterator 값 접근 방법
+- 1) iterator 변수에 -> 를 통한 값 접근
+~~~ C++
+// map<string,int>::iterator iter의 key 값 접근
+iter->first;
+// map<string,int>::iterator iter의 value 값 접근
+iter->second;
+~~~
 
+<br>
+
+- 2) iterator 변수 앞에 *를 찍고 감싼 뒤 '.'으로 접근
+~~~ C++
+// map<string,int>::iterator iter의 값을 (*iter).<값> 으로 접근 가능
+// (*iter)를 사용해 map의 second(value 값)에 접근하고 이다. 
+if((*iter).second != 0) { Ans = iter->first; }
+~~~
+
+
+- iterator 값 접근 예시 ▼
+~~~ C++
+#include <string>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion) {
+    // 해시테이블로 선수들의 정보를 저장한다.
+    // HASH -> Key: 선수들 이름 / Value: 선수들 도착 유무
+    map<string,int> m;
+    string Ans = "";
+    for(auto p : participant) m[p]++;
+    for(auto c : completion) m[c]--;
+    
+    map<string,int>::iterator iter;
+    for(iter=m.begin(); iter!=m.end(); iter++) {
+        if((*iter).second != 0) { Ans = iter->first; }
+    }
+    return Ans;
+}
+~~~
+
+<br>
 
 <br>
 <br>
@@ -611,6 +655,16 @@ int main(){
     return 0;
 }
 ~~~
+
+### sizeof(<변수>)
+- 변수의 메모리 사이즈를 반환한다. 
+- sizeof 사용 예시) ▼
+~~~ C++
+int score[3] = {0,0,0}; 
+sizeof(score)/sizeof(int); // score 메모리사이즈 12(4 * 3byte), int 메모리사이즈 4(4byte)
+~~~
+
+<br>
 
 ### min_element, max_element
 - 배열, 벡터 등의 특정 영역 최댓값, 최솟값을 주소로 반환한다.
@@ -869,6 +923,8 @@ var chk = [Bool](repeating: true, count: n+1)
 - sorted(), filter(), map(), reduce() 등 고차함수 사용 가능(고차함수 탭 참고)
 - append(<값>), append(contentsOf: <범위값>)
   - 배열의 맨 뒤에 요소를 추가한다.
+- isEmpty -> Bool
+  - 배열 요소가 비어있는지 확인 후 Bool값을 반환한다.
 ~~~ swift 
 func appnd() {
     var arr = [Int]()
@@ -1120,7 +1176,7 @@ if i+1 >= h.count { continue }
 ~~~
 <br>
 
-### Stride(from:,through/to:,by:)
+### stride(from:,through/to:,by:)
  - *Float 등의 부동소수점을 반복문으로 돌릴 수 없을까?*
    - Swift에서는 stride 전역함수를 이용하여 구현할 수 있다.
    - 부동소수점 이외에 문자열의 인수 등도 셀 수 있다.
