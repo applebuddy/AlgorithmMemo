@@ -22,22 +22,24 @@
 
 <br>
 
-## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
+## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
 <br>
 
-## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
 - [Array](https://github.com/applebuddy/AlgorithmMemo#array)
 - [Dictionary](https://github.com/applebuddy/AlgorithmMemo#dictionary)
 - [Set](https://github.com/applebuddy/AlgorithmMemo#set)
 - [Queue](https://github.com/applebuddy/AlgorithmMemo#queue-1)
 - [Stack](https://github.com/applebuddy/AlgorithmMemo#stack-1)
+### - [문자열](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#문자열)
+- [String](https://github.com/applebuddy/AlgorithmMemo#string)
+- [Character](https://github.com/applebuddy/AlgorithmMemo#character)
 ### - [반복문](https://github.com/applebuddy/AlgorithmMemo#%EB%B0%98%EB%B3%B5%EB%AC%B8)
-### - [배열 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EB%B0%B0%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [콘솔출력 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [주요 클로저함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9C%A0%EC%9A%A9%ED%95%9C-%ED%81%B4%EB%A1%9C%EC%A0%B8-%ED%95%A8%EC%88%98%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98)
@@ -1051,7 +1053,22 @@ func rmSubrange() {
 - firstIndex(of:<값>) -> Int?
   - 배열 맨 마지막에 나오는 <값>의 정수형 인덱스를 반환한다.  
   
-  
+<br>
+
+- swapAt(<인덱스1>,<인덱스2>)
+  - 두개의 요소를 교환한다. 
+
+~~~ swift
+// swapAt() 사용 예시)
+// j, j+1 인덱스의 요소를 교환한다.
+arr.swapAt(j, j+1) 
+~~~
+
+<br>
+
+- elementsEqual()
+  - 요소를 비교한 결과를 반환한다.
+
 <br>
 <br>
 
@@ -1238,6 +1255,57 @@ struct Stack<T> {
 }
 ~~~
 
+
+<br>
+<br>
+
+## ✓ 문자열
+
+### String
+- Swift의 문자열 타입 
+- String 초기화 예시 ▼
+~~~ swift 
+var str0 = "ABC"
+var str: String = "HELLOWORLD"
+print(str) // -> "HELLOWORLD"
+~~~
+
+<br>
+
+### Character
+- 별칭, String.Element
+- String의 부분적 요소 
+
+<br>
+
+### 문자 아스키코드 값 변환하기 
+- unicodeScalars.first!.value
+  - 문자열의 특정 문자를 아스키코드값으로 변환 시킨다.
+  - 반환타입은 UInt32(Unsigned Integer 32)이다.
+- Unicode.Scalar(<Int>) -> Unicode.Scalar
+  - 반환타입을 문자열로 사용하기 위해서 String, Character형 등으로 타입 변환하여 사용한다. 
+  - Int 타입 변수를 문자열로 변환 시킨다.
+- unicodeScalars, Unicode.Scalar 사용 예시 ▼
+	
+~~~ swift 
+func sizierCode(_ s: String, _ n: Int) -> String {
+    var arr = Array(s)
+
+    for i in arr.indices {
+        for _ in 0 ..< n {
+            if arr[i] == " " { break }
+	    // ✓ arr[i] 문자를 unicodeScalars.first!.value를 사용해 아스키코드 값으로 변환 시킨다.
+            let ascV = Int(arr[i].unicodeScalars.first!.value)
+            if ascV == 122 { arr[i] = "a"; continue }
+            if ascV == 90 { arr[i] = "A"; continue }
+	    // ✓ arr[i] 문자를 Unicode.Scalar()를 사용해 아스키코드 값으로 변환 시킨다.
+            arr[i] = Character(Unicode.Scalar(ascV + 1)!)
+        }
+    }
+    return arr.map { String($0) }.joined()
+}
+~~~
+
 <br>
 <br>
 
@@ -1283,63 +1351,6 @@ Ans = max(Ans, index * h[i])
             index += 1
             Ans = max(Ans, index * h[i])
 }
-~~~
-
-
-<br>
-<br>
-
-## ✓ 배열 기능 메서드
-
-<br>
-
-
-### swapAt()
-- 두개의 요소를 교환한다. 
-
-~~~ swift
-// swapAt() 사용 예시)
-// j, j+1 인덱스의 요소를 교환한다.
-arr.swapAt(j, j+1) 
-~~~
-
-<br>
-
-### append(contentsOf:<SlicedArray, ...>)
- - `Array[<값..<값>]` 등의 요소를 추가할 수 있다.(배열의 slice 요소 등)
-
-<br>
-
-### elementsEqual()
- - 요소를 비교한 결과를 반환한다.
-
-<br>
-
-### remove(at: )
- - 특정 위치(정수형 인덱스)의 요소를 삭제한다.
-
-<br>
-
-### removeSubrange<R>
- - 특정 영역의 요소를 삭제한다. 
-
-~~~ swift 
-// removeSubrange 사용 예시)
-// 0 ~ 3 인덱스 사이의 4개의 요소를 삭제
-// ... ..< 등의 범위를 지정해서 사용할 수 있다. 
-Arr.removeSubrange(0…3) 
-
-// removeSubrange 사용 예시 2)
-func rotLeft(a: [Int], d: Int) -> [Int] {
-    var a1 = a
-    let rot = d % a.count
-    a1.removeSubrange(0...rot-1) // removeSubrange의 사용
-    for i in 0 ..< rot {
-        a1.append(a[i])
-    }
-    return a1
-}
-
 ~~~
 
 <br>
