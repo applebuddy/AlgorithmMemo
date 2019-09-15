@@ -23,22 +23,33 @@
 <br>
 
 ## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
-### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
-### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
-### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
+### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#C++_자료구조)
+- [Array](https://github.com/applebuddy/AlgorithmMemo#-Array)
+- [Set](https://github.com/applebuddy/AlgorithmMemo#-Set)
+- [Pair](https://github.com/applebuddy/AlgorithmMemo#-Pair)
+- [Tuple](https://github.com/applebuddy/AlgorithmMemo#-Tuple)
+- [Vector](https://github.com/applebuddy/AlgorithmMemo#-Vector)
+- [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack)
+- [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue)
+- [Priority_Queue](https://github.com/applebuddy/AlgorithmMemo#-Priority_Queue)
+- [Map](https://github.com/applebuddy/AlgorithmMemo#-Map)
+- [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
+- [Multi_Map](https://github.com/applebuddy/AlgorithmMemo#-Multi_Map)
+### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
+### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
 <br>
 
 ## ✤  [Swift](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#swift_알고리즘)
-### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)
-- [Array](https://github.com/applebuddy/AlgorithmMemo#array)
-- [Dictionary](https://github.com/applebuddy/AlgorithmMemo#dictionary)
-- [Set](https://github.com/applebuddy/AlgorithmMemo#set)
-- [Queue](https://github.com/applebuddy/AlgorithmMemo#queue-1)
-- [Stack](https://github.com/applebuddy/AlgorithmMemo#stack-1)
+### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#Swift_자료구조)
+- [Array](https://github.com/applebuddy/AlgorithmMemo#-Array-1)
+- [Dictionary](https://github.com/applebuddy/AlgorithmMemo#-dictionary)
+- [Set](https://github.com/applebuddy/AlgorithmMemo#-Set-1)
+- [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue-1)
+- [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack-1)
 ### - [문자열](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#문자열)
-- [String](https://github.com/applebuddy/AlgorithmMemo#string)
-- [Character](https://github.com/applebuddy/AlgorithmMemo#character)
+- [String](https://github.com/applebuddy/AlgorithmMemo#-string)
+- [Character](https://github.com/applebuddy/AlgorithmMemo#-character)
 ### - [반복문](https://github.com/applebuddy/AlgorithmMemo#%EB%B0%98%EB%B3%B5%EB%AC%B8)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [콘솔출력 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
@@ -303,12 +314,12 @@ func flippingBits(n: Int) -> Int {
 <br>
 <br>
 
-## 자료구조
+## C++_자료구조
 
 <br>
 <br>
 
-## ✓ Array 배열
+## ✓ Array
 - 기본적으로 사용하는 컨네이너
 
 ~~~ C++
@@ -324,7 +335,7 @@ int arr[26] = {0,};
 <br>
 <br>
 
-## ✓ set 집합
+## ✓ Set
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
 // Set 사용 방법 
@@ -355,7 +366,7 @@ int frogRiverOne(int X, vector<int> &A) {
 <br>
 <br>
 
-## ✓ pair 
+## ✓ Pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
 
 ~~~ C++
@@ -371,7 +382,7 @@ vec.push_back(make_pair(mp.first, mp.second));
 <br>
 <br>
 
-## ✓ tuple
+## ✓ Tuple
 - 세개 이상의 값을 가지는 자료구조
 
 ~~~ C++
@@ -392,7 +403,7 @@ q.push(make_tuple(mz,ny,nx));
 <br>
 <br>
 
-## ✓ vector
+## ✓ Vector
 - 배열 외로 사용할 수 있는 자료구조, vector
 - **탐색속도는 느리나, 삽입속도가 빠른 자료구조**
 - push_back(<Value>) 등 으로 값을 넣을 수 있다. 
@@ -451,7 +462,7 @@ queue<int> q;
 <br>
 <br>
 
-## ✓ Priority Queue 
+## ✓ Priority_Queue 
 - **우선순위 큐(Heap 자료구조 중 하나)**
 - 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
 - **컬렉션 내 최솟값, 최댓값을 자주 사용해야할 때 유용**하다.
@@ -489,7 +500,7 @@ priority_queue<int, vector<int>, greater<int>> q;
 <br>
 <br>
 
-## ✓ map
+## ✓ Map
 
 <br>
 
@@ -556,7 +567,7 @@ void sortingMapStructure()
 <br>
 <br>
 
-## ✓ unordered_map
+## ✓ Unordered_Map
 - **데이터 양 n > 32 일 경우, map보다 전체적인 성능이 좋다고 한다.**
 - map과 기본적인 동작은 유사하다. 
 
@@ -571,7 +582,7 @@ unordered_map<int,int> m;
 <br>
 <br>
 
-## ✓ 자주 사용되는 헤더(Header)
+## 자주 사용되는 헤더(Header)
 
 <br>
 
@@ -602,7 +613,7 @@ int main() {
 <br>
 <br>
 
-## ✓ multimap
+## ✓ MultiMap
 - 일반 map과 달리 중복된 키값을 가질 수 있는 자료구조
 - key값이 동일하면서 각각 다른 값을 갖는 데이터를 저장할 수 있다. 
 
@@ -681,7 +692,7 @@ string solution(vector<string> participant, vector<string> completion) {
 <br>
 <br>
 
-## ✓ 자주 사용되는 함수
+## 자주 사용되는 함수
 
 <br>
 <br>
@@ -901,7 +912,7 @@ for(auto s : s2) {
 <br>
 <br>
 
-## 자료구조 
+## Swift_자료구조 
 
 <br>
 <br>
