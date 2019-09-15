@@ -303,12 +303,12 @@ func flippingBits(n: Int) -> Int {
 <br>
 <br>
 
-## ✓ 자료구조
+## 자료구조
 
 <br>
 <br>
 
-## Array 배열
+## ✓ Array 배열
 - 기본적으로 사용하는 컨네이너
 
 ~~~ C++
@@ -324,7 +324,7 @@ int arr[26] = {0,};
 <br>
 <br>
 
-## set 집합
+## ✓ set 집합
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
 // Set 사용 방법 
@@ -355,7 +355,7 @@ int frogRiverOne(int X, vector<int> &A) {
 <br>
 <br>
 
-## pair 
+## ✓ pair 
 - 두개의 값을 가지며, 두개의 값의 타입은 다를 수 있다.
 
 ~~~ C++
@@ -371,7 +371,7 @@ vec.push_back(make_pair(mp.first, mp.second));
 <br>
 <br>
 
-## tuple
+## ✓ tuple
 - 세개 이상의 값을 가지는 자료구조
 
 ~~~ C++
@@ -392,7 +392,7 @@ q.push(make_tuple(mz,ny,nx));
 <br>
 <br>
 
-## vector
+## ✓ vector
 - 배열 외로 사용할 수 있는 자료구조, vector
 - **탐색속도는 느리나, 삽입속도가 빠른 자료구조**
 - push_back(<Value>) 등 으로 값을 넣을 수 있다. 
@@ -406,7 +406,7 @@ vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 <br>
 <br>
 
-## Stack 
+## ✓ Stack 
 - FILO (First In Last Out) 방식의 자료구조 
 
 ### ✤ 선언방식 
@@ -428,7 +428,7 @@ stack<int> q;
 <br>
 <br>
 
-## Queue 
+## ✓ Queue 
 - FIFO (First In First Out) 방식의 자료구조
 
 ### ✤ 선언방식
@@ -451,8 +451,8 @@ queue<int> q;
 <br>
 <br>
 
-## Priority Queue
-- 우선순위 큐
+## ✓ Priority Queue 
+- **우선순위 큐(Heap 자료구조 중 하나)**
 - 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
 - **컬렉션 내 최솟값, 최댓값을 자주 사용해야할 때 유용**하다.
 
@@ -489,7 +489,7 @@ priority_queue<int, vector<int>, greater<int>> q;
 <br>
 <br>
 
-## map
+## ✓ map
 
 <br>
 
@@ -518,9 +518,45 @@ if(iter != m.end() && i+1 != (*iter).second+1) {
 ~~~
 
 <br>
+
+### map의 값 오름차순, 내림차순 출력하기
+
+~~~ C++
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void sortingMapStructure()
+{
+    // 1) 오름차순으로 map 요소 확인
+    // map<double, string> sorted_map;
+    // 2) 내림차순 으로 map 요소 확인을 위해서는 map 세번째 인자값으로 greater<int>를 추가한다. 
+    map<double, string, greater<int>> sorted_map;
+ 
+    // map 요소 추가 
+    sorted_map.insert(make_pair(0.3829, "Mercury"));
+    sorted_map.insert(make_pair(0.9499, "Venus"));
+    sorted_map.insert(make_pair(1,      "Earth"));
+    sorted_map.insert(make_pair(0.532,  "Mars"));
+    sorted_map.insert(make_pair(10.97,  "Jupiter"));
+    sorted_map.insert(make_pair(9.14,   "Saturn"));
+    sorted_map.insert(make_pair(3.981,  "Uranus"));
+    sorted_map.insert(make_pair(3.865,  "Neptune"));
+    
+    // map 내 요소 오름차순/내림차순 출력
+    for (auto const& entry: sorted_map) {
+        std::cout << entry.second << " (" << entry.first << " of Earth's radius)" << '\n';
+    }
+}
+
+/// * 출처 : https://riptutorial.com/ko/cplusplus/example/13316/std----map--오름차순-및-내림차순--정렬
+~~~
+
+<br>
 <br>
 
-## unordered_map
+## ✓ unordered_map
 - **데이터 양 n > 32 일 경우, map보다 전체적인 성능이 좋다고 한다.**
 - map과 기본적인 동작은 유사하다. 
 
@@ -562,6 +598,13 @@ int main() {
     while (ss >> dat) cout << dat << '\n';
 }
 ~~~
+
+<br>
+<br>
+
+## ✓ multimap
+- 일반 map과 달리 중복된 키값을 가질 수 있는 자료구조
+- key값이 동일하면서 각각 다른 값을 갖는 데이터를 저장할 수 있다. 
 
 <br>
 <br>
@@ -858,12 +901,12 @@ for(auto s : s2) {
 <br>
 <br>
 
-## ✓ 자료구조 
+## 자료구조 
 
 <br>
 <br>
 
-## Array
+## ✓ Array
 - 스위프트의 기본적인 배열
 - 정의 방법 
 
@@ -1072,7 +1115,7 @@ arr.swapAt(j, j+1)
 <br>
 <br>
 
-## Dictionary
+## ✓ Dictionary
 - 키(Key)와 값(Value)로 이루어 져 있는 자료구조
 - 키와 값은 특정 타입을 허용한다. 
   - 키(Key) : Hashable프로토콜을 준수하는 값만 사용 가능
@@ -1135,7 +1178,7 @@ for i in 0..<cost.count-1 {
 <br>
 <br>
 
-## Set
+## ✓ Set
 - 집합 자료구조
 - 집합요소는 각각 중복 요소가 없는 단일 값이다. 
 <br>
@@ -1218,7 +1261,7 @@ a.symmetricDiffernce(b) // => [1,2,4,5]
 <br>
 <br>
 
-## Queue 
+## ✓ Queue 
 - 스위프트 Queue의 사용
 - FIFO(Fire In First Out) 방식
 
@@ -1233,7 +1276,7 @@ struct Queue<T> {
 <br>
 <br>
 
-## Stack 
+## ✓ Stack 
 - 스위프트 Stack의 사용
 - FILO(Fire In Last Out) 방식
 
