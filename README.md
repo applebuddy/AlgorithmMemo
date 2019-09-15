@@ -34,7 +34,7 @@
 - [Priority_Queue](https://github.com/applebuddy/AlgorithmMemo#-Priority_Queue)
 - [Map](https://github.com/applebuddy/AlgorithmMemo#-Map)
 - [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
-- [Multi_Map](https://github.com/applebuddy/AlgorithmMemo#-Multi_Map)
+- [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
@@ -576,7 +576,25 @@ void sortingMapStructure()
 ### 선언방법
 
 ~~~ C++
+#include <unordered_map>
 unordered_map<int,int> m;
+~~~
+
+<br>
+<br>
+
+
+## ✓ MultiMap
+- 일반 map과 달리 중복된 키값을 가질 수 있는 자료구조
+- key값이 동일하면서 각각 다른 값을 갖는 데이터를 저장할 수 있다. 
+
+<br>
+
+### 선언방법
+
+~~~ C++
+#include <map>
+multimap<int,int> m;
 ~~~
 
 <br>
@@ -609,13 +627,6 @@ int main() {
     while (ss >> dat) cout << dat << '\n';
 }
 ~~~
-
-<br>
-<br>
-
-## ✓ MultiMap
-- 일반 map과 달리 중복된 키값을 가질 수 있는 자료구조
-- key값이 동일하면서 각각 다른 값을 갖는 데이터를 저장할 수 있다. 
 
 <br>
 <br>
