@@ -46,7 +46,9 @@
 - [Dictionary](https://github.com/applebuddy/AlgorithmMemo#-dictionary)
 - [Set](https://github.com/applebuddy/AlgorithmMemo#-Set-1)
 - [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue-1)
+- [QueueArray](https://github.com/applebuddy/AlgorithmMemo#-QueueArray)
 - [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack-1)
+- [DoubleStack](https://github.com/applebuddy/AlgorithmMemo#-DoubleStack)
 ### - [문자열](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#문자열)
 - [String](https://github.com/applebuddy/AlgorithmMemo#-string)
 - [Character](https://github.com/applebuddy/AlgorithmMemo#-character)
@@ -1287,11 +1289,87 @@ a.symmetricDiffernce(b) // => [1,2,4,5]
 - 스위프트 Queue의 사용
 - FIFO(Fire In First Out) 방식
 
+- 간단한 QueueArray 구현 예시) ▼ 
 ~~~ swift
 struct Queue<T> { 
     private(set) var elements: Array<T> = []
     mutating func push(value: T) { elements.append(value) } // O(1)
     mutating func pop() -> T { return elements.removeFirst() } // O(`count`)
+}
+~~~
+
+- Queue 프로토콜 구현 예시) ▼
+
+~~~ swift 
+// MARK: - Queue
+
+// MARK: FIFO방식의 Queue 프로토콜 구현
+
+// Int, String, Double, Float 어떠한 타입으로 지정하던 Element라는 별칭으로서 사용되어질 수 있다.
+// * associatedtype : 프로토콜을 정의할 때, 제네릭타입과 같이 일반화 시킨 타입을 지정할때 사용할 수 있다.
+import Foundation
+
+// MARK: - FIFO방식의 Queue
+
+public protocol Queue {
+    // Queue의 데이터타입 별칭을 Element로 지정합니다.
+    associatedtype Element
+
+    // 큐의 요소를 FIFO방식으로 추가합니다.
+    mutating func push(_ element: Element) -> Bool
+
+    // 큐의 요소를 FIFO방식으로 제거합니다.
+    mutating func pop() -> Element?
+
+    // 해당 큐가 비어있는지를 확인합니다.
+    var isEmpty: Bool { get }
+
+    // 해당 큐의 앞쪽에 요소가 존재하는지 확인합니다.
+    var front: Element? { get }
+
+    // 해당 큐의 뒷쪽에 요소가 존재하는지 확인합니다.
+    var back: Element? { get }
+}
+~~~
+
+<br>
+<br>
+
+## ✓ QueueArray 
+- Array를 활용한 Queue의 구현 + Queue프로토콜 활용
+- **push 시간 복잡도 : 평소 O(1) 최악 O(N)** -> 배열 공간의 요소가 다 찼을때 배열공간 확장으로 O(N)의 복잡도 될 수 있음
+- **pop 시간 복잡도 : O(N)** -> 배열 맨 앞의 요소 제거 후 전체 요소를 전부 좌 쉬프트 해야하기 때문이다.
+- 구현 예시) ▼
+
+~~~ swift 
+// MARK: - QueueArray
+
+// MARK: Array를 사용한 Queue 구현
+
+import Foundation
+
+public struct QueueArray<T>: Queue {
+    private var elements = [T]()
+    public mutating func push(_ element: T) -> Bool {
+        elements.append(element)
+        return true
+    }
+
+    public mutating func pop() -> T? {
+        return elements.removeFirst()
+    }
+
+    public var isEmpty: Bool {
+        return elements.isEmpty
+    }
+
+    public var front: T? {
+        return elements[0]
+    }
+
+    public var back: T? {
+        return elements[elements.count - 1]
+    }
 }
 ~~~
 
@@ -1320,6 +1398,60 @@ struct Stack<T> {
 }
 ~~~
 
+<br>
+<br>
+
+## ✓ DoubleStack
+- 두 개의 Stack을 사용해 큐와 같은 기능을 수행한다. 
+- 배열을 사용한 큐보다 Enqueue, Dequeue에서의 시간복잡도가 가볍다.
+  - **두개의 스택을 사용하여 enQueue, deQueue의 시간복잡도 O(1)** 을 이룰 수 있다.
+  - **공간복잡도 O(N)**
+~~~ swift 
+// MARK: - DoubleStack, 더블스택
+
+// MARK: 두개의 스택을 사용하여 enQueue, deQueue의 시간복잡도 O(1)을 이룰 수 있다.
+
+// ✓ 확인해야 할 사항 : deQueue(pop) 실행 간 rightStack을 reversed() 실행할 경우 시간복잡도는 O(N)이 되는 것 아닌가??
+
+import Foundation
+
+public struct QueueDoubleStack<T>: Queue {
+    // Enqueue 역할을 할 좌측 스택
+    private var leftStack = [T]()
+
+    // Dequeue 역할을 할 우측 스택
+    private var rightStack = [T]()
+
+    public init() {}
+
+    public mutating func push(_ element: T) -> Bool {
+        rightStack.append(element)
+        return true
+    }
+
+    // 시간복잡도 최선 O(1) ~ 최악 O(N)
+    public mutating func pop() -> T? {
+        if leftStack.isEmpty {
+            // 배열의 reversed() 복잡도는 N이다.
+            leftStack = rightStack.reversed()
+            rightStack.removeAll()
+        }
+        return leftStack.popLast()
+    }
+
+    public var front: T? {
+        return !leftStack.isEmpty ? leftStack.last : rightStack.first
+    }
+
+    public var back: T? {
+        return !rightStack.isEmpty ? rightStack.last : leftStack.first
+    }
+
+    public var isEmpty: Bool {
+        return leftStack.isEmpty && rightStack.isEmpty
+    }
+}
+~~~
 
 <br>
 <br>
