@@ -466,8 +466,12 @@ queue<int> q;
 
 ## ✓ Priority_Queue 
 - **우선순위 큐(Heap 자료구조 중 하나)**
+- 일반 Queue와 달리 비선형 자료구조
 - 기존 큐와 달리 항시 큐의 top은 최소 or 최댓값이 위치하게 된다. 
 - **컬렉션 내 최솟값, 최댓값을 자주 사용해야할 때 유용**하다.
+- **push, pop 시간 복잡도는 logN**
+
+<br>
 
 ### 선언방식 
 
@@ -498,6 +502,71 @@ priority_queue<int, vector<int>, greater<int>> q;
         q.pop();
     }
 ~~~
+
+### ✭ 우선순위큐 정렬방식 설정하기
+- **priority_queue의 세번째 인자값을 지정하여 설정** 가능
+
+<br>
+
+- **MIN 힙(Heap)**
+- priority_queue 세번째 인자 값 -> greater<int> 지정
+
+~~~ C++
+// q.top은 queue 내의 가장 작은 값
+priority_queue<int, vector<int>, greater<int>> q; 
+~~~
+
+<br>
+
+- **MAX 힙(Heap)**
+- priority_queue 세번째 인자 값 -> less<int> 지정
+	
+~~~ C++
+// q.top은 queue 내의 가장 큰 값
+priority_queue<int, vector<int>, less<int>> q; 
+~~~
+
+<br>
+
+- **커스텀 정렬 힙(Heap)**
+- 커스텀 정렬을 위한 compare구조체를 지정하여 priority_queue의 세번째 인자값으로 지정한다. 
+~~~ C++
+#include <string>
+#include <vector>
+#include <map>
+#include <queue>
+
+using namespace std;
+typedef pair<int, int> Pair;
+
+/// 우선순위큐 커스텀 정렬 구조체
+struct compare{
+/// p1, p2의 첫번째 값 내림차순 정렬
+/// -> 만약 p1, p2의 첫번쨰 값이 같다면 두번째 값 오름차순 정렬
+    bool operator()(const Pair &p1, const Pair &p2){
+        if(p1.first < p2.first) return true;
+        else if(p1.first == p2.first) {
+            if(p1.second > p2.second) return true;
+        }
+        return false;
+    }
+};
+
+vector<int> solution(vector<string> genres, vector<int> plays) {
+    vector<int> Ans;
+	
+    // priority_queue<Pair,vector<Pair>,compare>> : 커스텀 정렬 힙
+    map<string,priority_queue<Pair,vector<Pair>,compare>> mp;
+    map<string,int> totMp;
+    map<int,string,greater<int>> totMpr;
+    
+    for(int i=0; i<genres.size(); i++) {
+        mp[genres[i]].push(make_pair(plays[i],i));
+        totMp[genres[i]] += plays[i];
+    }
+}
+~~~
+
 
 <br>
 <br>
@@ -532,7 +601,7 @@ if(iter != m.end() && i+1 != (*iter).second+1) {
 
 <br>
 
-### map의 값 오름차순, 내림차순 출력하기
+### ✭ 맵 정렬방식 설정하기
 
 ~~~ C++
 #include <iostream>
