@@ -244,6 +244,11 @@ func makeSqut(_ num: Int) -> Int {
 
 ~~~
 
+<br>
+
+### 수학관련 알고리즘
+- 1) 약수의 갯수가 홀수개인 숫자인지 판별하는 방법
+  - **해당 수 N의 제곱근, A을 구한다. N == A*A ? true : false**
 
 <br>
 
@@ -502,6 +507,8 @@ priority_queue<int, vector<int>, greater<int>> q;
         q.pop();
     }
 ~~~
+
+<br>
 
 ### ✭ 우선순위큐 정렬방식 설정하기
 - **priority_queue의 세번째 인자값을 지정하여 설정** 가능
