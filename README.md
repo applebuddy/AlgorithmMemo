@@ -215,6 +215,21 @@ func findPrime(_ n:Int) -> Int {
 
 <br>
 
+### 올림, 내림, 반올림
+- C++, Swift
+  - ceil(<값>) : 올림 함수
+  - floor(<값>) : 내림 함수
+~~~ swift
+/// Swift 소수럼 1자리 제외 버리기 -> floor(<값>) 사용 예시
+let input = 1.123456789
+let output = floor(input * 10) / 10
+// output == 10.1
+~~~
+  - round(<값>) : 반올림 함수
+
+
+<br>
+
 ### 제곱근 (Square Root)
 - 어떤 수, x를 두개 곱했을때 a가 된다면 x를 a의 제곱근이라 한다. 
 - a에 root를 씌우면 제곱근이 나온다. 
@@ -994,6 +1009,19 @@ string str = s.substr(0,5);
 
 <br>
 
+### to_string 
+- Convert Type Int to Stirng
+~~~ C++
+string answer = "";
+vector<int> Ans = {1,2,3,4,5};
+
+// vector Ansd의 맨 앞의 값을 문자열로 변환하여 answer에 추가한다. 
+answer += to_string(Ans.front()) + " "; // "1 "
+answer += to_string(Ans.back()); // "1 2"
+~~~
+
+<br>
+
 ### stoi(<string>), stol(<string>), stof(<string>), stod(<string>)
 - string에서 다른 타입으로 변환 시 사용
 - Convert String to Int/long/Float/Double
@@ -1750,9 +1778,25 @@ Ans = max(Ans, index * h[i])
 <br>
 
 ## ✓ String 문자열 기능 메서드
-### components(saparatedBy:)
- - 문자열을 특정 separator 기준으로 잘라서 배열로 만들어준다.
-
+### components(saparatedBy:) -> Array<T>
+- 문자열을 특정 separator 기준으로 잘라서 배열로 만들어준다.
+~~~ swift 
+public func sad(_ S : String) -> Int {
+    Components를 사용하여 "?", "!", "."간격으로 분리, 배열화 한다.
+    let arr = S.components(separatedBy: ["?","!","."])
+}
+~~~
+~~~ swift 
+/// components + 고차함수 응용 예시)
+func getMinMax(_ s: String) -> String {
+    // 1) 입력한 문자열의 공백을 기준으로 잘라 배열로 만든다.
+    // 2) map을 이용해 배열 요소를 각각 Int 형으로 강제 변환
+    // 3) 변환한 Int형 요소들을 sorted()를 이용해 오름차순 정렬한다. 
+    let Ans = s.components(separatedBy: " ").map { Int($0)! }.sorted()
+    return "\(Ans[0]) \(Ans[Ans.count-1])"
+}	
+~~~
+	
 <br>
 
 ### index(, offsetBy:)
