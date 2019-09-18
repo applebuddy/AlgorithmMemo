@@ -25,10 +25,10 @@
 ## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#C++_자료구조)
 - [Array](https://github.com/applebuddy/AlgorithmMemo#-Array)
+- [Vector](https://github.com/applebuddy/AlgorithmMemo#-Vector)
 - [Set](https://github.com/applebuddy/AlgorithmMemo#-Set)
 - [Pair](https://github.com/applebuddy/AlgorithmMemo#-Pair)
 - [Tuple](https://github.com/applebuddy/AlgorithmMemo#-Tuple)
-- [Vector](https://github.com/applebuddy/AlgorithmMemo#-Vector)
 - [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack)
 - [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue)
 - [Priority_Queue](https://github.com/applebuddy/AlgorithmMemo#-Priority_Queue)
@@ -342,6 +342,140 @@ int arr[26] = {0,};
 <br>
 <br>
 
+## ✓ Vector
+- 배열 외로 사용할 수 있는 자료구조, vector
+- C++에서 쉽게 사용 가능한 Sequence Container, 배열과 유사하다.
+  - 벡터 내 원소는 하나의 메모리 블록에 연속적으로 저장이 된다.
+- 임의 접근 반복자(Random Access Iterator)를 지원하는 Container
+
+- **탐색속도는 느리나, 삽입속도가 빠른 자료구조**
+- push_back(<Value>) 등 으로 값을 넣을 수 있다. 
+
+~~~ C++
+// vector 사용 예)
+// * vector + pair의 사용 예 : 7개의 pair값을 갖는 벡터 정의 예시이다.
+vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
+~~~
+
+<br>
+
+### Vector 초기화 방법
+~~~ C++
+vector vec; // 텅 빈 vector 컨테이너
+vector vec2(5); // 5개의 기본값으로 초기화된 원소를 갖는 컨테이너
+vector vec3(n,x) // n개의 x값으로 초기화 된 원소를 갖는 벡터 컨테이너
+~~~
+
+<br>
+
+### Vector 기능
+- assign(<시작 주소>,<끝 주소>), assign(<할당갯수>,<초기화값>)
+  - 벡터에 특정 크기의 테이터를 할당한다. 
+~~~ C++
+vector<int> vec;
+vector<int> vec2;
+vec.assign(3,5); // {5,5,5}
+vec2.assign(vec.begin(),vec.end()); // {5,5,5}
+~~~
+
+<br>
+
+- push_back(<값>)
+  - 벡터에 값을 추가한다. 
+~~~ C++
+vector<int> vec;
+vec.push_back(1); // {1}
+vec.push_back(2); // {1,2}
+~~~
+
+<br>
+
+- pop_back()
+  - 벡터의 마지막 값을 제거한다 .
+~~~ C++
+vector<int> vec;
+vec.push_back(1); // {1}
+vec.pop_back(); // {}
+~~~
+
+<br>
+
+- insert(<시작주소>, <값>), insert(<시작주소>, <추가갯수>, <값>)
+  - 특정 위치에 값을 추가한다. 
+~~~ C++
+// initialising the vector 
+    vector<int> vec = { 10, 20, 30, 40 }; 
+  
+    // inserts 3 at front   
+    auto it = vec.insert(vec.begin(), 3); // {3, 10, 20, 30, 40}
+      
+    // inserts 2 at front  
+    vec.insert(it, 2); // {2, 3, 10, 20, 30, 40}
+    
+    // inserts 5 at front three times in a row
+    vec.insert(it, 3, 5); // {5, 5, 5, 2, 3, 10, 20, 30, 40}
+~~~
+
+<br>
+
+- erase(<값 주소>), erase(<값 시작주소>, <값 끝주소>)
+  - 1) <특정주소>의 값 제거 
+  - 2) <시작주소> ..< <끝주소> 영역의 값 제거
+
+<br>
+
+- vec.at(i), vec.[i]
+  - i 번째 원소를 반환한다. 
+  
+<br>
+
+- vec.front()
+  - 벡터의 첫 원소를 반환한다.
+
+<br>
+
+- vec.back()
+  - 벡터의 마지막 원소를 반환한다.
+
+<br>
+
+- vec.swap(vec2)
+  - 벡터(vec, vec2) 간 스왑
+
+
+<br>
+
+- vec.clear()
+  - 벡터의 모든 원소를 제거한다.
+  
+<br>
+
+- vec.empty()
+  - 벡터가 비었는지를 boolean 값으로 반환
+  
+<br>
+
+- vec.size()
+  - 벡터의 원소갯수 반환 
+  
+<br>
+
+- vec.resize(<공간크기>), vec.resize(<공간크기>, <초기화 값>)
+  - 벡터 크기를 재조정한다. 
+  
+<br>
+
+- vec.max_size()
+  - 벡터가 담을 수 있는 최대 원소 갯수 반환 
+  
+<br>
+
+- capacity() 
+  - 메모리 할당크기 확인 가능
+
+<br>
+<br>
+
 ## ✓ Set
 - 집합구조, 중복요소가 들어가지 않는다.
 ~~~ C++
@@ -405,20 +539,6 @@ int nx=get<2>(q.front());
 // tuple 값 쓰기 예시)
 // make_tuple(<값1>,<값2>,<값3>) 형식으로 사용 가능
 q.push(make_tuple(mz,ny,nx));	
-~~~
-
-<br>
-<br>
-
-## ✓ Vector
-- 배열 외로 사용할 수 있는 자료구조, vector
-- **탐색속도는 느리나, 삽입속도가 빠른 자료구조**
-- push_back(<Value>) 등 으로 값을 넣을 수 있다. 
-
-~~~ C++
-// vector 사용 예)
-// * vector + pair의 사용 예 : 7개의 pair값을 갖는 벡터 정의 예시이다.
-vector<pair<int,int>> chk = {{0,0}, {0,1}, {0,2}, {1,1}, {2,0}, {2,1}, {2,2}};
 ~~~
 
 <br>
