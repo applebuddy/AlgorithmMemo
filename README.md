@@ -16,8 +16,9 @@
 # 목차 
 
 ## ✤  [공통](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#공통_알고리즘)
-### - [정렬알고리즘](https://github.com/applebuddy/AlgorithmMemo#-%EA%B8%B0%EB%B3%B8-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-### - [수학함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%88%98%ED%95%99)
+### - [정렬 알고리즘](https://github.com/applebuddy/AlgorithmMemo#-_알고리즘)
+### - [수학 알고리즘](https://github.com/applebuddy/AlgorithmMemo#-수학_알고리즘)
+### - [수학 함수](https://github.com/applebuddy/AlgorithmMemo#-수학_함수)
 
 
 <br>
@@ -67,7 +68,7 @@
 <br>
 <br>
 
-## ✓ 기본 정렬 알고리즘
+## ✓ 정렬_알고리즘
 
 <br>
 
@@ -182,6 +183,13 @@ void countSwaps(vector<int> a) {
 ~~~
 
 <br>
+<br>
+
+## ✓ 수학_알고리즘
+### 약수의 갯수가 홀수개인 숫자인지 판별하는 방법
+- **해당 수 N의 제곱근, A을 구한다. N == A*A ? true : false**
+
+<br>
 
 ### 에라토스 테네스의 체
 - 소수를 가벼운 복잡도로 구할 수 있는 알고리즘
@@ -210,8 +218,57 @@ func findPrime(_ n:Int) -> Int {
 }
 ~~~
 
+<br>
 
-## ✓ 수학
+### **카탈린 수** 
+- **함수, y=x 그래프를 넘지않는 최단거리 구하기**
+- Catalan number, 카탈랑 수
+- 동일한 완전 쌍의 조합의 갯수 
+  - ex) 올바른 괄호 갯수 찾기 
+- 카탈린 수 연산 예시) ▼
+
+~~~ C++
+/// MARK: - 올바른 괄호의 갯수 : 카탈린 알고리즘
+/// '{', '}' 각각 n개를 갖고 있는 올바른 괄호의 갯수 경우의 수를 출력하라!!
+
+// * 경우의 수 + 괄호내용 출력 버전)
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int Ans = 0;
+char str[30];
+void getBrace(int idx, int open, int close) {
+/// open Brace '{'가 n개 전부 사용되었다면, 더이상 '{'은 사용 불가, 나머지 사용하지 않은 '}'를 추가
+/// 처음 getBrace 함수에서 받은 인자, open, close값만 사용, 
+/// -> open Brace < close Brace일때만 close Brace를 사용하기때문에 올바른 괄호만 출력된다. 
+    if(open == 0) {
+        while(close--) str[idx++] = '}';
+        Ans++;
+        printf("%s\n",str);
+        return;
+    }
+    
+    // open Brace '{' 사용
+    str[idx] = '{';
+    // open Brace 사용 후 open-1 재귀함수 실행
+    getBrace(idx+1, open-1, close);
+    
+    // open Brace가 Close 보다 작은경우
+    if(open < close) {
+    /// close Brace '}' 사용
+        str[idx] = '}';
+	// close Brace 사용 후 close-1 재귀함수 실행
+        getBrace(idx+1, open, close-1);
+    }
+}
+~~~
+
+<br>
+<br>
+
+## ✓ 수학_함수
 
 <br>
 
@@ -261,15 +318,10 @@ func makeSqut(_ num: Int) -> Int {
 
 <br>
 
-### 수학관련 알고리즘
-- 1) 약수의 갯수가 홀수개인 숫자인지 판별하는 방법
-  - **해당 수 N의 제곱근, A을 구한다. N == A*A ? true : false**
-
-<br>
-
 ### 비트연산자 ^, XOR
 - 배타적 논리합
 - 두개의 값이 다르면 1, 같으면 0
+
 <br>
 
 ### 비트연산자 &, AND
@@ -325,7 +377,6 @@ func flippingBits(n: Int) -> Int {
 }
 
 ~~~
-
 
 <br>
 <br>
