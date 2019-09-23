@@ -538,6 +538,37 @@ vec.pop_back(); // {}
 
 - capacity() 
   - 메모리 할당크기 확인 가능
+  
+<br> 
+
+- reverse(<시작주소>,<끝주소>)
+  - Algorithm 헤더로 사용 가능
+  - **특정 영역의 요소를 역순으로 뒤집는다.**
+  - **시간복잡도 : O(n)**
+~~~ C++
+/// reverse() 사용 예시)
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+
+int arrayReverseExample() {
+    int n;
+    cin >> n;
+    vector<int> arr(n,0);
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
+    /// * 벡터 arr의 전체영역을 역순으로 뒤집는다. 
+    reverse(arr.begin(), arr.end());
+    for(auto v : arr) printf("%d ",v); // 역순으로 뒤집어진 vector Element 출력
+
+    return 0;
+}
+~~~
+  
 
 <br>
 <br>
