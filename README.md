@@ -37,6 +37,7 @@
 - [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
 - [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
+### - [입출력](https://github.com/applebuddy/AlgorithmMemo#C_입출력)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
 <br>
@@ -55,7 +56,7 @@
 - [Character](https://github.com/applebuddy/AlgorithmMemo#-character)
 ### - [반복문](https://github.com/applebuddy/AlgorithmMemo#%EB%B0%98%EB%B3%B5%EB%AC%B8)
 ### - [문자열 메서드](https://github.com/applebuddy/AlgorithmMemo#-string-%EB%AC%B8%EC%9E%90%EC%97%B4-%EA%B8%B0%EB%8A%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
-### - [콘솔출력 메서드](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
+### - [콘솔 입출력](https://github.com/applebuddy/AlgorithmMemo#-%EC%BD%98%EC%86%94-%EC%B6%9C%EB%A0%A5-%EB%A9%94%EC%84%9C%EB%93%9C)
 ### - [주요 클로저함수](https://github.com/applebuddy/AlgorithmMemo#-%EC%9C%A0%EC%9A%A9%ED%95%9C-%ED%81%B4%EB%A1%9C%EC%A0%B8-%ED%95%A8%EC%88%98%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98)
 
 
@@ -920,6 +921,37 @@ int main() {
 
     string dat;
     while (ss >> dat) cout << dat << '\n';
+}
+~~~
+
+<br>
+<br>
+
+## ✓ C++_입출력
+- 출력
+  - printf("...") / cout << ...
+- 입력
+  - scanf("%d",&value) / cin >> ...
+  
+<br>
+
+### cin / cout 입출력 속도 개선 
+  - printf(), scanf() 사용에 제한이 생기므로 사용에 주의가 따른다. 
+~~~ C++
+/// cin / cout 입출력 속도 개선방법 예시)
+ios_base :: sync_with_stdio(0); cin.tie(0); cout.tie(0);
+~~~
+
+<br>
+
+### while + 일괄 입력 처리
+- while문 + cin 을 사용해서 일괄적인 값들을 읽어들일 수 있다. 
+~~~ C++
+/// while(cin >> value) 사용예시
+int sum=0;
+int value=0;
+while(cin >> value) {
+    sum += value;
 }
 ~~~
 
