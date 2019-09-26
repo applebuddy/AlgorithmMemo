@@ -324,8 +324,25 @@ let input = 1.123456789
 let output = floor(input * 10) / 10
 // output == 10.1
 ~~~
-  - round(<값>) : 반올림 함수
 
+<br>
+
+  - round(<값>) : 반올림 함수
+  - ✓ floor(value + 0.5)를 통한 반올림 기법 예시
+~~~ C++
+int getRound() {
+    double N;
+    cin >> N;
+    for(int i=10; i<100000000; i*=10) {
+        if(N>i) {
+	/// * floor(value+0.5)를 통해 반올림과 같은 연산을 할 수 있다. 
+            int temp = floor(N/i+0.5);
+            N = temp*i;
+        }
+    }
+    return N;
+}
+~~~
 
 <br>
 
