@@ -36,6 +36,7 @@
 - [Map](https://github.com/applebuddy/AlgorithmMemo#-Map)
 - [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
 - [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
+### - [문자열](https://github.com/applebuddy/AlgorithmMemo#-c_문자열)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
 ### - [입출력](https://github.com/applebuddy/AlgorithmMemo#C_입출력)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
@@ -309,6 +310,31 @@ void getBrace(int idx, int open, int close) {
 
 <br>
 <br>
+
+### LIS : 가장 긴 증가하는 수열 알고리즘
+- <Algorithm>, lower_bound() 기능을 활용한다.
+- 수열의 증가하는 긴 수열을 구할때 사용한다. 
+- LIS 알고리즘 활용 예시 ▼
+~~~ C++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+void effectiveBandoChaeDesign() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int N;
+    cin >> N;
+    vector<int> V(40001,0);
+    vector<int> Ans;
+    for(int i=0; i<N; i++) cin >> V[i];
+    for(int i=0; i<N; i++) {
+        int idx = lower_bound(Ans.begin(), Ans.end(), V[i]) - Ans.begin(); // V[i]값 이상 존재하는 반복자를 반환한다.
+        if(idx == Ans.size()) Ans.push_back(V[i]); // Ans벡터 안에 만약 V[i]이상의 값이 없으면 V[i]를 Ans 벡터에 추가
+        else Ans[idx] = V[i]; // Ans벡터 안에 V[i]이상의 값이 존재했다면, 그곳의 값을 V[i]로 만든다.
+    }
+    printf("%d\n",(int)Ans.size());
+}
+~~~
 
 ## ✓ 수학_함수
 
@@ -954,6 +980,52 @@ multimap<int,int> m;
 <br>
 <br>
 
+## C++_문자열
+- <string>, <string.h> 헤더를 통해 string 문자열 타입을 사용 가능
+
+<br>
+
+### 문자열 기능 함수 `mutating`
+- reverse(string.begin(), string.end())
+  - 문자열을 뒤집어준다. 접근한 문자열 자체 함수 내에서 변경된다.
+~~~ C++
+/// MARK: - reverse() 사용 예시)
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int calcReversedNumber(const int &a, const int &b) {
+    string aStr = to_string(a);
+    string bStr = to_string(b);
+    /// 1) aStr, bStr을 뒤집는다. 
+    reverse(aStr.begin(), aStr.end());
+    reverse(bStr.begin(), bStr.end());
+    
+    /// 2) 뒤집은 문자열을 숫자로 변환 후 계산한 결과를 다시 문자열 변환 후 reversedResult에 넣는다. 
+    string reversedResult = to_string(stoi(aStr) + stoi(bStr));
+    
+    /// 3) 연산 결과를 다시 뒤집어 숫자로 변환 -> 값을 반환한다. 
+    reverse(reversedResult.begin(), reversedResult.end());
+    return stoi(reversedResult);
+}
+
+int main() {
+    ios_base :: sync_with_stdio(0); cin.tie(0);
+    int T; cin >> T;
+    while(T--) {
+        int a,b; cin >> a >> b;
+        int Ans = calcReversedNumber(a,b);
+        printf("%d\n",Ans);
+    }
+    return 0;
+}
+~~~
+
+<br>
+<br>
+
 ## 자주 사용되는 헤더(Header)
 
 <br>
@@ -961,6 +1033,11 @@ multimap<int,int> m;
 ### <bits/stdc++.h>
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
+
+<br>
+
+### <string>
+- 문자열 타입, string 사용 시 추가 
 
 <br>
 
@@ -1131,6 +1208,7 @@ sizeof(score)/sizeof(int); // score 메모리사이즈 12(4 * 3byte), int 메모
 <br>
 
 ### min_element, max_element
+- <Algorithm> 기능
 - 배열, 벡터 등의 특정 영역 최댓값, 최솟값을 주소로 반환한다.
 - 실제 최솟값, 최댓값을 구하려면 min_element, max_element 함수 앞에 '*'을 붙여 접근 가능하다.
 ~~~ C++
@@ -1143,6 +1221,15 @@ for(int i=0; i<arr.size()-k; i++) {
     }
 ~~~
 
+<br>
+
+### lower_bound(first iterator, last iterator, Value)
+- Binary Search Structure
+- Value값 이상의 값이 존재하는 iterator를 반환한다. 
+
+### upper_bound(first iterator, last iterator, Value)
+- Binary Search Structure
+- Vallue값 초과의 값이 존재하는 iterator를 반환핟나. 
 
 <br>
 
