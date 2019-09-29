@@ -24,6 +24,7 @@
 <br>
 
 ## ✤  [C++](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_알고리즘)
+### - [타입](https://github.com/applebuddy/AlgorithmMemo/blob/master/README.md#c_)
 ### - [자료구조](https://github.com/applebuddy/AlgorithmMemo#C++_자료구조)
 - [Array](https://github.com/applebuddy/AlgorithmMemo#-Array)
 - [Vector](https://github.com/applebuddy/AlgorithmMemo#-Vector)
@@ -472,9 +473,43 @@ func flippingBits(n: Int) -> Int {
 <br>
 <br>
 
-## C++_자료구조
+## C++_타입
 
 <br>
+
+### 타입 최댓값 출력방법
+- <climits>
+- <climits> 사용 예시 ▼
+~~~ C++
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main() {
+    
+    unsigned int us = UINT_MAX;
+    int is = INT_MAX;
+    long ls = LONG_MAX;
+    long long lls = LONG_LONG_MAX;
+    printf("unsigned int range: %u\n",us);
+    printf("int range: %d\n",is);
+    printf("long range: %ld\n",ls);
+    printf("long long range: %lld\n",lls);
+    
+    return 0;
+}	
+~~~
+
+<br>
+
+<div> <img width=460 src="https://user-images.githubusercontent.com/4410021/65826312-6d2ef100-e2bd-11e9-8b8e-e1e3a9995c43.png">
+<div>
+
+<br>
+<br>
+
+## C++_자료구조
+
 <br>
 
 ## ✓ Array
@@ -981,7 +1016,17 @@ multimap<int,int> m;
 <br>
 
 ## C++_문자열
+- string Type
 - <string>, <string.h> 헤더를 통해 string 문자열 타입을 사용 가능
+- string 초기화 방법
+~~~ C++
+string str = "";
+string str2(3,'T'); // TTT
+~~~
+
+<br>
+
+
 
 <br>
 
