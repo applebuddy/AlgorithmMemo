@@ -1069,6 +1069,52 @@ int main() {
 ~~~
 
 <br>
+
+- tolower(), toupper()
+  - 문자 or 문자열의 대소문자 변환 함수 
+~~~ C++
+/// 문자열 대소문자 변환 예시)
+int main() {
+    ios_base :: sync_with_stdio(0); cin.tie(0);
+    string S; cin>>S;
+    /// * 만약 대문자면 tolower(), 소문자면 toupper()를 사용하면 대소문자를 변환 시킨다. 
+    for(int i=0; i<S.length(); i++) S[i] = S[i]<97 ? tolower(S[i]) : toupper(S[i]);
+    printf("%s\n",S.c_str());
+    return 0;
+}
+~~~
+
+<br>
+
+- strtol
+  - 문자열의 진법표현을 다른 진법표현으로 변환할 수 있다. 
+  - <stdlib.h> 기능
+~~~ C++
+// 8진법은 oct, 16진법은 hex
+// 8진법 0, 16진법 0x
+#include <stdllib.h>
+void convertHexCode() {
+    string S;
+    int cnt=0;
+    while(cnt<=1000) {
+        cin>>S;
+        cnt+=S.length();
+        string Ans="";
+        while(S.length()!=0) {
+            string temp = "0x" + S.substr(0,2);
+	    /// * strtol() 함수를 사용해 16진수를 10진수로 변환한다.
+            long num = strtol(temp.c_str(),NULL,16);
+            Ans += char(num);
+            S = S.substr(2);
+        }
+        printf("%s\n",Ans.c_str());
+    }
+    return;
+}
+~~~
+  
+
+<br>
 <br>
 
 ## 자주 사용되는 헤더(Header)
