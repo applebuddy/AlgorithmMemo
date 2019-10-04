@@ -336,6 +336,42 @@ void effectiveBandoChaeDesign() {
     printf("%d\n",(int)Ans.size());
 }
 ~~~
+		      
+<br>
+<br>
+
+### Prefix Sum 알고리즘
+- 미지 특정 인덱스 까지의 합을 기록하려 구간합을 구하는 알고리즘
+- Prefix Sum Algorithm Example)
+~~~ C++
+/// MARK: - 합 구하기_11441 : Prefix Sum Problems
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+void solveTheSumOfNumber() {
+    int N; cin>>N;
+    int arr[N];
+    memset(arr,0,sizeof(arr));
+    
+    /// 1) 미리 배열 arr에 구간값을 기록한다. 
+    for(int i=0; i<N; i++) {
+        cin>>arr[i];
+        if(i!=0) arr[i]+=arr[i-1];
+    }
+    
+    int T; cin>>T;
+    for(int i=0; i<T; i++) {
+        int s,e; cin>>s>>e;
+	
+        /// 2) e번째까지의 구간합 - s번째까지의 구간합을 계산하여 s ~ e 구간의 부분합을 구할 수 있다. 
+        printf("%d\n",arr[e-1]-((s!=1) ? arr[s-2] : 0));
+    }
+    return;
+}
+~~~
+		  
 
 ## ✓ 수학_함수
 
