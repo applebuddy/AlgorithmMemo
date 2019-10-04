@@ -371,7 +371,8 @@ void solveTheSumOfNumber() {
     return;
 }
 ~~~
-		  
+
+<br>
 
 ## ✓ 수학_함수
 
@@ -1062,7 +1063,15 @@ string str2(3,'T'); // TTT
 
 <br>
 
+### char[] 문자열 -> string 문자열로 변환하기
+~~~ C++
 
+/// 1) char[] 배열 문자열, str을 초기화 인자로 하여 초기화 하면 
+char str[11]; memset(str,' ',sizeof(str));
+
+/// 2) 쉽게 char[] to string 문자열 변환이 가능하다. 
+string Str(str);
+~~~
 
 <br>
 
@@ -1214,6 +1223,37 @@ int sum=0;
 int value=0;
 while(cin >> value) {
     sum += value;
+}
+~~~
+
+<br>
+
+- 끝을 모르는 입력을 받을때 사용하는 while(scanf())
+  - 입력의 구체적인 끝이 주어지지 않았을때 사용할 수 있다.
+  - while(1), while(true)를 사용하면 출력초과가 발생하는 경우 대체로 사용 가능하다.
+~~~ C++
+void thePermutation() {
+    char str[11]; memset(str,' ',sizeof(str));
+    int pos;
+    
+    while(scanf("%s %d",str,&pos)!=EOF) {
+        string S(str);
+        sort(S.begin(),S.end());
+        int cnt=1;
+        bool flag=false;
+        printf("%s %d = ",S.c_str(),pos);
+        do {
+            if(cnt==pos) {
+                printf("%s\n",S.c_str());
+                flag=true;
+                break;
+            }
+            cnt++;
+
+        }while(next_permutation(S.begin(),S.end()));
+        if(!flag) printf("No permutation\n");
+    }
+    return;
 }
 ~~~
 
