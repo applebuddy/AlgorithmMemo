@@ -958,8 +958,13 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 
 ### 선언방식
 ~~~ C++
+/// MARK: map 기본 설정 
 map<int,int> m;
+
+/// MARK: map 값 사전 설정 방법, {<키>,<값>}...
+unordered_map<string,int> MP = {{"i",-1},{"pa",-1},{"te",-1},{"ni",-1},{"niti",-1},{"a",-1},{"ali",-1},{"nego",-1},{"no",-1},{"ili",-1}};
 ~~~
+
 
 <br>
 <br>
@@ -1021,7 +1026,7 @@ void sortingMapStructure()
 
 ## ✓ Unordered_Map
 - **데이터 양 n > 32 일 경우, map보다 전체적인 성능이 좋다고 한다.**
-- map과 기본적인 동작은 유사하다. 
+- map과 기본적인 동작, 선언, 초기화 방법 등 유사하다. 
 
 <br>
 
@@ -1059,6 +1064,22 @@ multimap<int,int> m;
 ~~~ C++
 string str = "";
 string str2(3,'T'); // TTT
+~~~
+
+### 문자열 반복 문자 얻기
+- std::string(<반복횟수>,<반복시킬문자>)
+- 특정 문자 반복 문자열 활용 예시 ▼)
+~~~ C++
+for(int i=0; i<N; i++) {
+        string before,ansStr=""; cin>>before;
+        SV.push_back(before);
+	
+	/// ansStr 문자열 변수에 SV[i][j] 문자가 2번 반복된 문자열을 추가한다. 
+        for(int j=0; j<SV[i].length(); j++) {
+            ansStr += string(2, SV[i][j]);
+        }
+        Ans.push_back(ansStr);
+    }
 ~~~
 
 <br>
@@ -1158,6 +1179,27 @@ void convertHexCode() {
 }
 ~~~
   
+<br>
+
+~~~ C++
+/// MARK: - 8진수, 10진수, 16진수 별 10진수 변환 출력하기 예제 
+//  * stdlib.h 를 추가 후, strtol을 사용하여 간단하게 진수 변환 가능
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+using namespace std;
+
+void octalAndDecimalAnsHexaDecimal() {
+    string S; cin>>S;
+    long Ans=0;
+    if(S[0]=='0') {
+        if(S[1]=='x') Ans = strtol(S.c_str(), NULL, 16);
+        else Ans = strtol(S.c_str(), NULL, 8);
+    } else Ans=stoi(S);
+    printf("%ld\n",Ans);
+    return;
+}
+~~~
 
 <br>
 <br>
