@@ -1461,6 +1461,41 @@ s.substr(<시작인덱스>,<잘라낼길이>)ㅣ
 
 <br>
 
+### strcat(<문자열1>,<문자열2>)
+- 문자열 두개를 붙인다. 
+~~~ C++
+#include <string.h>
+int main() {
+	string s1="AB", s2="AV";
+	strcat(s1,s2); // "ABAV"
+	return 0;
+}
+~~~
+
+<br>
+
+### strtok
+- 문자열을 특정 문자 기준으로 잘라낸다.
+~~~ C++
+/// MARK: - strtok 사용, 문자열 잘라내기 예시)
+
+int main() {
+    char s1[30] = "The Little Prince";  // 크기가 30인 char형 배열을 선언하고 문자열 할당
+
+    char *ptr = strtok(s1, " ");      // " " 공백 문자를 기준으로 문자열을 자름, 포인터 반환
+
+    while (ptr != NULL)               // 자른 문자열이 나오지 않을 때까지 반복
+    {
+        printf("%s\n", ptr);          // 자른 문자열 출력
+        ptr = strtok(NULL, " ");      // 다음 문자열을 잘라서 포인터를 반환
+    }
+
+    return 0;
+}
+~~~
+
+<br>
+
 <div>
 <img width=600 src="https://user-images.githubusercontent.com/4410021/64427784-f69f3900-d0ec-11e9-9e0a-5c08f48ddc67.png">
 </div>
