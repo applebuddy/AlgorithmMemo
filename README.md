@@ -641,6 +641,15 @@ vec.pop_back(); // {}
 
 <br>
 
+  - insert를 활용한 벡터 합치기
+~~~ C++
+vector<int> answer = {1,2,3};
+vector<int> temp(3,6);
+answer.insert(answer.end(),temp.begin(),temp.end()); // 1 2 3 6 6 6
+~~~
+
+<br>
+
 - erase(<값 주소>), erase(<값 시작주소>, <값 끝주소>)
   - 1) <특정주소>의 값 제거 
   - 2) <시작주소> ..< <끝주소> 영역의 값 제거
@@ -696,6 +705,21 @@ vec.pop_back(); // {}
 - capacity() 
   - 메모리 할당크기 확인 가능
   
+<br>
+
+- unique(<시작주소>,<끝주소>)
+  - 특정 범위의 중복값을 제거 후 컨테이너 뒤로 처박아 둔다.
+    * 완벽한 중복값 제거를 위해 erase 함께 활용 필요 
+~~~ C++
+#include <vector>
+#include <algorithm>
+int main() {    
+    vector<int> v = {1,1,1,2,2,2,3,3,3,4,5,6};
+    v.erase(unique(s.begin(),s.end()),s.end()) // 1 2 3 4 5 6
+    return 0;
+}
+~~~
+
 <br> 
 
 - reverse(<시작주소>,<끝주소>)
