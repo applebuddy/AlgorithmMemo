@@ -1120,6 +1120,42 @@ string Str(str);
 
 <br>
 
+### string 문자열 -> char[] 문자열로 변환하기 
+- char 배열에 string 변수를 할당 + 맨 뒤에 '\0' 추가한다.
+~~~ C++
+
+#include <string.h>
+#include <string>
+#include <algorithm>
+
+int main() {
+     /// string을 한줄 입력받는다.
+     getline(cin,str,'\n');
+     
+     /// char형 배열에 string 값 할당
+     vector<char> S(str.begin(), str.end());
+     
+     /// 맨 끝 '\0' 추가
+     S.push  _back('\0');
+     
+     /// char 포인터에 char 배열 맨 앞의 값 주소를 할당
+     /// -> string to char 변환 완료 
+     ch = &S[0];
+     vector<int> V;
+     if(str.length()==1 && S[0]=='0') break;
+     
+     /// 변환된 char 문자열의 활용
+     char *tok;
+     tok = strtok(ch," ");
+     while(tok!=NULL) {
+         V.push_back(stoi(tok));
+         tok = strtok(NULL, " ");
+     }
+  }
+~~~
+
+<br>
+
 ### 문자열 기능 함수 `mutating`
 - reverse(string.begin(), string.end())
   - 문자열을 뒤집어준다. 접근한 문자열 자체 함수 내에서 변경된다.
