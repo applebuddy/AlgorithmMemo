@@ -33,8 +33,8 @@
 - [Tuple](https://github.com/applebuddy/AlgorithmMemo#-Tuple)
 - [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack)
 - [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue)
-- [Deque](https://github.com/applebuddy/AlgorithmMemo#-Deque)
 - [Priority_Queue](https://github.com/applebuddy/AlgorithmMemo#-Priority_Queue)
+- [Deque](https://github.com/applebuddy/AlgorithmMemo#-Deque)
 - [Map](https://github.com/applebuddy/AlgorithmMemo#-Map)
 - [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
 - [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
@@ -1004,8 +1004,10 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 }
 ~~~
 
-## ✔︎ Deque
+## ✓ Deque
 - 앞/뒤로 푸시/팝이 가능한 자료구조
+
+<br>
 
 ### Deque 기능
 - **시간복잡도**
