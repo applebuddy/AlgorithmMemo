@@ -33,6 +33,7 @@
 - [Tuple](https://github.com/applebuddy/AlgorithmMemo#-Tuple)
 - [Stack](https://github.com/applebuddy/AlgorithmMemo#-Stack)
 - [Queue](https://github.com/applebuddy/AlgorithmMemo#-Queue)
+- [Deque](https://github.com/applebuddy/AlgorithmMemo#-Deque)
 - [Priority_Queue](https://github.com/applebuddy/AlgorithmMemo#-Priority_Queue)
 - [Map](https://github.com/applebuddy/AlgorithmMemo#-Map)
 - [Unordered_Map](https://github.com/applebuddy/AlgorithmMemo#-Unordered_Map)
@@ -1003,6 +1004,74 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 }
 ~~~
 
+## ✔︎ Deque
+- 앞/뒤로 푸시/팝이 가능한 자료구조
+
+### Deque 기능
+- **시간복잡도**
+  - **원소추가 N(1), 원소제거 N(1)**
+- push_back()
+  - 뒤에 요소를 추가한다.
+- push_front()
+  - 앞에 요소를 추가한다.
+- pop_back()
+  - 뒤의 요소를 제거한다. 
+- pop_front()
+  - 앞의 요소를 제거한다. 
+- size()
+  - 현재 크기 반환
+- empty() 
+  - 컨테이너가 비었는지 Boolean 값 반환 
+  
+~~~ C++
+/// MARK: - Deque_10866 : Deque Structure Implementation Problem
+//  덱(deque) 사용 예시)
+#include <iostream>
+#include <deque>
+using namespace std;
+
+void theDequeImplementation() {
+    deque<int> DQ;
+    int T; cin>>T;
+    while(T--) {
+        string S; cin>>S;
+        if(S=="push_back") {
+            int N; cin>>N;
+            DQ.push_back(N);
+        } else if(S=="push_front") {
+            int N; cin>>N;
+            DQ.push_front(N);
+        } else if(S=="front") {
+            if(DQ.empty()) printf("%d\n",-1);
+            else {
+                printf("%d\n",DQ.front());
+            }
+        } else if(S=="back") {
+            if(DQ.empty()) printf("%d\n",-1);
+            else {
+                printf("%d\n",DQ.back());
+            }
+        } else if(S=="size") {
+            printf("%d\n",(int)DQ.size());
+        } else if(S=="pop_front") {
+            if(DQ.empty()) printf("%d\n",-1);
+            else {
+                printf("%d\n",DQ.front());
+                DQ.pop_front();
+            }
+        } else if(S=="pop_back") {
+            if(DQ.empty()) printf("%d\n",-1);
+            else {
+                printf("%d\n",DQ.back());
+                DQ.pop_back();
+            }
+        } else if(S=="empty") {
+            printf("%d\n",DQ.empty());
+        }
+    }
+    return;
+}
+~~~
 
 <br>
 <br>
