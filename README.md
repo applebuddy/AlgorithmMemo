@@ -750,6 +750,37 @@ int arrayReverseExample() {
 }
 ~~~
   
+- lower_bound(<주소시작>,<주소끝>,<타겟값>), upper_bound(<주소시작>,<주소끝>,<타겟값>)
+  - <타겟값> 이상 / 이하의 값이 있는 주소를 반환한다. 
+  - 이진탐색으로 작동하기 때문에 사용되는 컨테이너 내 요소는 정렬되어있어야 사용 가능하다. 
+  - **시간복잡도, logN**
+  
+~~~ C++
+// lower_bound 사용 예시)
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T; cin>>T;
+    vector<int> V(T,0);
+    vector<int> Ans;
+    for(int i=0; i<T; i++) cin>>V[i];
+    for(int i=0; i<T; i++) {
+    	/// V[i] 이상의 값이 Ans 벡터 내 존재하는 지 확인한다. 
+        auto IDX = (lower_bound(Ans.begin(), Ans.end(), V[i]) - Ans.begin());
+	/// 만약 값이 존재하지 않는다면, (IDX == Ans.size()) 해당 값을 Ans에 추가하고 만약 존재하면 해당 인덱스의 값을 갱신
+        if(IDX == Ans.size()) Ans.push_back(V[i]);
+        else Ans[IDX] = V[i];
+    }
+    
+    printf("%d\n",(int)Ans.size());
+    puts("");
+    
+    return 0;
+}
+~~~
 
 <br>
 <br>
