@@ -215,12 +215,58 @@ void countSwaps(vector<int> a) {
   * ✓ 프로그래밍 대회를 위한 여섯단계 문제 해결 알고리즘 (출처, 종만북)
   
 <br>
-
-
-
 <br>
 
 ## ✓ 그래프_알고리즘
+
+### 위상정렬 알고리즘
+- 유향그래프의 꼭짓점들을 변의 방향을 거스르지 않고 나열하는 것.
+- 줄세우기 등의 방향성을 거스르지 않게 정렬 하는 경우 사용할 수 있다. 
+~~~ C++
+/// MARK: - 위상정렬 알고리즘 예시)
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+// C: 방향 체크 배열
+// G: 위상정렬에 사용하는 유향그래프
+int C[32001] = {0,};
+vector<int> G[32001];
+
+void theLiningSorting() {
+    int N,M; cin>>N>>M;
+    queue<int> Q;
+    for(int i=0; i<M; i++) {
+        int A,B; cin>>A>>B;
+	// 목표 지즘의 노드 C 인덱스를 증가
+        C[B]++;
+	// A->B 방향으로 유향 그래프를 그려준다. 
+        G[A].push_back(B);
+    }
+    
+    // 0 일경우(지표가 없는 노드 순서의 경우) 그대로 큐에 삽입한다. 
+    for(int i=1; i<=N; i++) if(C[i]==0) Q.push(i);
+    
+    // 큐가 텅 빌 때까지 유향그래프를 순회하며 줄세우기를 실시한다. 
+    while(!Q.empty()) {
+    // 현재 순서가 정해 진 큐의 front 노드를 출력하고 pop() 처리한다. 
+        int node = Q.front();
+        printf("%d",node);
+        Q.pop();
+        for(int i=0; i<G[node].size(); i++) {
+	// C 카운트를 가감시켰을 때 0이 되면 해당 인덱스의 노드를 큐에 push(), 삽입하여 줄세우기에 사용한다. 
+            C[G[node][i]]--;
+            if(C[G[node][i]]==0) Q.push(G[node][i]);
+        }
+        if(!Q.empty()) printf(" ");
+        else printf("\n");
+    }
+    return;
+}
+~~~
+
+<br>
 
 ### 최단경로 알고리즘
 - 단일 시작접 알고리즘
