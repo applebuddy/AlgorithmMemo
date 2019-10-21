@@ -419,6 +419,34 @@ void solveTheSumOfNumber() {
 }
 ~~~
 
+### Manacher's Algorithm
+- 가장 긴 펠린드롬(좌우 대칭 문자열) 문자열을 O(N) 복잡도로 구할 수 있는 특수한 알고리즘
+~~~ C++
+/// manacher's Algorithm 적용 예시)
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+using namespace std;
+
+vector<int> PC(200003,0);
+
+void manachersAlgorithm(string S) {
+    int r=0,p=0;
+    for(int i=0; i<(int)S.length(); i++) {
+        if(i<=r) PC[i]=min(PC[2*p-i],r-i);
+        else PC[i]=0;
+        while(i-PC[i]-1>=0 && i+PC[i]+1<(int)S.length() && S[i-PC[i]-1]==S[i+PC[i]+1]) PC[i]++;
+        if(r<i+PC[i]) {
+            r=i+PC[i];
+            p=i;
+        }
+    }
+    return;
+}
+~~~
+
 <br>
 
 ## ✓ 수학_함수
@@ -758,12 +786,34 @@ answer.insert(answer.end(),temp.begin(),temp.end()); // 1 2 3 6 6 6
   - 특정 범위의 중복값을 제거 후 컨테이너 뒤로 처박아 둔다.
     * 완벽한 중복값 제거를 위해 erase 함께 활용 필요 
 ~~~ C++
+/// unique 사용예시 1)
 #include <vector>
 #include <algorithm>
 int main() {    
     vector<int> v = {1,1,1,2,2,2,3,3,3,4,5,6};
     v.erase(unique(s.begin(),s.end()),s.end()) // 1 2 3 4 5 6
     return 0;
+}
+~~~
+
+~~~ C++
+/// unique 사용예시 2)
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+void removeTheDuplicate() {
+    while(1) {
+        int N; cin>>N;
+        vector<int> V(N,0);
+        if(N==0) break;
+        for(int i=0; i<N; i++) cin>>V[i];
+        V.erase(unique(V.begin(), V.end()),V.end());
+        for(auto v: V) printf("%d ",v);
+        printf("$\n");
+    }
+    return;
 }
 ~~~
 
