@@ -421,30 +421,74 @@ void solveTheSumOfNumber() {
 
 ### Manacher's Algorithm
 - 가장 긴 펠린드롬(좌우 대칭 문자열) 문자열을 O(N) 복잡도로 구할 수 있는 특수한 알고리즘
+- Manacher's Algorithm(마나커 알고리즘)은 A[i]가 존재할때, i-A[i] ~ A[i]+i 범위의 팰린드롬문자열이 존재하면, i-A[i]-1 ~ A[i]+i+1 의 팰린드롬 문자열은 없음을 이용하는 O(N) 복잡도의 특수 알고리즘 기법이다.
 ~~~ C++
-/// manacher's Algorithm 적용 예시)
+/// MARK: - 가장 긴 펠린드롬 부분 문자열 문제 예시 : Manacher's Algorithm Problem
 
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cmath>
 using namespace std;
 
-vector<int> PC(200003,0);
-
-void manachersAlgorithm(string S) {
-    int r=0,p=0;
-    for(int i=0; i<(int)S.length(); i++) {
-        if(i<=r) PC[i]=min(PC[2*p-i],r-i);
-        else PC[i]=0;
-        while(i-PC[i]-1>=0 && i+PC[i]+1<(int)S.length() && S[i-PC[i]-1]==S[i+PC[i]+1]) PC[i]++;
-        if(r<i+PC[i]) {
-            r=i+PC[i];
-            p=i;
+vector<int> A(1000000,0);
+class LongestPalindromicSubstring {
+public:
+    /// MARK: manacherAlgorithm
+    string manacherAlgorithm(string S) {
+        // r : 가장 큰 팰린드롬 문자열의 우측 범위를 저장 -> 해당 값이 줄어드는 경우는 없으므로 S 문자열을 순회하며 O(N)의 복잡도를 가진 후 종료
+        // p : 가장 큰 팰린드롬 문자열의 중심 축을 저장
+        int r=0,p=0;
+        int sum=0,mxIdx=0;
+        string Ans = "";
+        for(int i=0; i<S.length(); i++) {
+            // 현재 식별된 펠린드롬 문자열 범위 안에 있으면, 펠린드롬 범위 내 대칭점의 값과 '최근 펠린드롬 우측범위(r)-i' 값의 최솟값으로 초기화
+            // 현재 식별된 펠린드롬 문자열 범위 밖이라면, 0으로 초기화
+        for(int i=0; i<S.length(); i++) {
+            if(i <= r) A[i] = min(A[2*p-i],r-i);
+            else A[i] = 0;
+            
+            /// 펠린드롬 문자열 여지가 있는 인덱스를 기준으로 펠린드롬 가능 범위를 지정한다. 
+            //  0 이상으로 초기화 된 경우에도 그 이상의 바깥 문자열을 비교하며, 더욱 긴 펠린드롬 문자열이 식별 시 A[i]를 증가시킨다. 
+            while(i-A[i]-1 >= 0 && i+A[i]+1 <S.length() && S[i-A[i]-1]==S[i+A[i]+1]) A[i]++;
+            
+            /// 더 큰 팰린드롬 문자열 우측 범위가 식별되면 갱신 후, 그 중심점(P) 또한 갱신한다.
+            if(r < i+A[i]) {
+                r = i+A[i];
+                p = i;
+            }
+            
+            // 가장 긴 팰린드롬 문자열 길이 밎 그 중심점 인덱스를 저장한다. 
+            if(sum < A[i]) {
+                sum = A[i];
+                mxIdx = i;
+            }
         }
+	
+        for(int i=max(mxIdx-A[mxIdx],0); i<min(mxIdx+A[mxIdx],(int)S.length()-1); i++) {
+            Ans += S[i];
+        }
+
+        return Ans;
     }
-    return;
-}
+    
+    string longestPalindrome(string s) {
+        
+        // "bb" 같은 짝수 개의 펠린드롬 부분문자열까지 식별하기 위해 문자열 사이에 '@' 문자를 임의로 끼워서 manacher's Algorithm을 수행한다.
+        string S = "@";
+        for(int i=0; i<s.length(); i++) {
+            S+=s[i];
+            S+='@';
+        }
+
+        string ANS = manacherAlgorithm(S);
+        string Ans = "";
+        
+        /// '@' 문자를 제외한 가장 긴 펠린드롬 부분문자열을 반환한다.
+        for(auto s: ANS) {
+            if(s!='@') Ans+=s;
+        }
+        return Ans;
+    }
+};
 ~~~
 
 <br>
