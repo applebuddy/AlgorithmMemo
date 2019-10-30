@@ -1665,10 +1665,11 @@ while(cin >> value) {
 
 <br>
 
-- 끝을 모르는 입력을 받을때 사용하는 while(scanf())
+### 끝을 모르는 입력을 받을때 사용하는 while(scanf())
   - 입력의 구체적인 끝이 주어지지 않았을때 사용할 수 있다.
   - while(1), while(true)를 사용하면 출력초과가 발생하는 경우 대체로 사용 가능하다.
 ~~~ C++
+/// 끝을 모르는 입력 받을때 사용 예시 
 void thePermutation() {
     char str[11]; memset(str,' ',sizeof(str));
     int pos;
@@ -1693,6 +1694,39 @@ void thePermutation() {
     return;
 }
 ~~~
+
+<br>
+
+### 특정 길이의 문자열을 계속 입력받을 때 사용하는 getchar(), fgets..., ~scanf()...
+- while(~scanf("%c", &C)) {}
+- while((C=getchar()) != EOF) {} 
+~~~ swift
+#include <iostream>
+#include <vector>
+using namespace std;
+    
+int main() {
+    vector<int> AV(26,0);
+    char C;
+    // 문자열 특정 갯수까지 계속 입력받기 1)
+    while(~scanf("%c", &C)) {
+        if(C>='a' && C<='z') AV[C-'a']++;
+    }
+    
+    // 문자열 특정 갯수까지 계속 입력받기 2)
+//    while((C=getchar()) != EOF) {
+//        if(C>='a' && C<='z') AV[C-'a']++;
+//    }
+    
+    int max = 0;
+    for(int i=0; i<26; i++) max = max<AV[i] ? AV[i] : max;
+    for(int i=0; i<26; i++) if(max==AV[i]) printf("%c",i+'a');
+    
+    return 0;
+}
+~~~
+
+<br>
 
 <br>
 <br>
