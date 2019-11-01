@@ -40,6 +40,11 @@
 - [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
 ### - [문자열](https://github.com/applebuddy/AlgorithmMemo#-c_문자열)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
+- [iostream]
+- [Algorithm]
+- [string]
+- [sstream]
+- [bits/stdc++.h]
 ### - [입출력](https://github.com/applebuddy/AlgorithmMemo#C_입출력)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
@@ -1603,6 +1608,43 @@ void octalAndDecimalAnsHexaDecimal() {
 
 <br>
 
+### <iostream>
+- C++ 입출력 헤더 
+- cin, cout 등의 입출력 함수 사용 가능 
+- * C++_입출력 코너 참고
+	
+<br>
+	
+### <algorithm>
+- sort(), fill(), reverse() 등 다양한 유용 함수 제공
+- sort()
+  - 퀵정렬+힙정렬을 혼합한 정렬함수 제공
+~~~ C++
+sort(V.begin(), V.end(), greater<int>);
+~~~
+	
+<br>
+
+- reverse
+  - 시퀀스 컨테이너의 요소를 뒤집어주는 함수, mutating 함수
+~~~ C++
+reverse(S.begin(), S.end());
+~~~
+
+<br>
+
+- fill
+  - 특정 시퀄스 영역을 특정 값으로 채워 줌
+~~~ C++
+// 배열의 경우)
+fill(begin(Visit), begin(Visit)+N+1, false);
+
+// 벡터의 경우)
+fill(V.begin(), V.end(), true);
+~~~
+
+<br>
+
 ### <bits/stdc++.h>
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
@@ -1631,6 +1673,8 @@ int main() {
     while (ss >> dat) cout << dat << '\n';
 }
 ~~~
+
+<br>
 
 <br>
 <br>
