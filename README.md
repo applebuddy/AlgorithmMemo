@@ -40,11 +40,12 @@
 - [MultiMap](https://github.com/applebuddy/AlgorithmMemo#-MultiMap)
 ### - [문자열](https://github.com/applebuddy/AlgorithmMemo#-c_문자열)
 ### - [주요 헤더](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%97%A4%EB%8D%94header)
-- [iostream]
-- [Algorithm]
-- [string]
-- [sstream]
-- [bits/stdc++.h]
+- [iostream](https://github.com/applebuddy/AlgorithmMemo#iostream)
+- [Algorithm](https://github.com/applebuddy/AlgorithmMemo#algorithm)
+- [bits/stdc++.h](https://github.com/applebuddy/AlgorithmMemo#bitsstdch)
+- [string](https://github.com/applebuddy/AlgorithmMemo#string)
+- [sstream](https://github.com/applebuddy/AlgorithmMemo#sstream)
+
 ### - [입출력](https://github.com/applebuddy/AlgorithmMemo#C_입출력)
 ### - [주요 함수](https://github.com/applebuddy/AlgorithmMemo#%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%ED%95%A8%EC%88%98)
 
@@ -1651,14 +1652,14 @@ void octalAndDecimalAnsHexaDecimal() {
 
 <br>
 
-### <iostream>
+### iostream
 - C++ 입출력 헤더 
 - cin, cout 등의 입출력 함수 사용 가능 
 - * C++_입출력 코너 참고
 	
 <br>
 	
-### <algorithm>
+### algorithm
 - sort(), fill(), reverse() 등 다양한 유용 함수 제공
 - sort()
   - 퀵정렬+힙정렬을 혼합한 정렬함수 제공
@@ -1688,18 +1689,18 @@ fill(V.begin(), V.end(), true);
 
 <br>
 
-### <bits/stdc++.h>
+### bits/stdc++.h
 - 알고리즘 간 사용될 수 있는 모든 기능을 사용할 수 있다.
 - Visual Studio가 아닌 Xcode 등 일부 환경에서는 사용 불가능하다.
 
 <br>
 
-### <string>
+### string
 - 문자열 타입, string 사용 시 추가 
 
 <br>
 
-### <sstream>
+### sstream
 - stringstream
 - 문자열의 공백 간 분리 기능 사용 예시 ▼
 	
