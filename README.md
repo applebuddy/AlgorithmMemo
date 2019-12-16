@@ -1888,6 +1888,31 @@ string solution(vector<string> participant, vector<string> completion) {
 
 <br>
 
+### iterator 역방향 반복자 사용하기
+- iterator에 rbegin(), rend() 를 로 접근해서 역방향 반복자를 사용 가능하다. 
+- 반복자를 역순으로 순회하고자 할 때 사용 가능하다. 
+- 역방향 반복자 사용 예시 
+~~~ swift
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    ios_base :: sync_with_stdio(0); cin.tie(0);
+    int N; cin>>N;
+    vector<int> V(N,0);
+    for(int i=0; i<N; i++) cin>>V[i];
+    sort(V.begin(),V.end());
+    // V.rbegin() ~ V.rend() 구간은 V 벡터의 역방향 순회를 하게 된다. 
+    for(auto iter = V.rbegin(); iter!=V.rend(); ++iter) {
+        printf("%d\n",*iter);
+    }
+    
+    return 0;
+}
+~~~
+
 <br>
 <br>
 
