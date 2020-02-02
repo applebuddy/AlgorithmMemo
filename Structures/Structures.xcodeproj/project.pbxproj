@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07C8C606232F6229005DBA4A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C605232F6229005DBA4A /* main.swift */; };
+		074980D723D8D8520005A4B3 /* Heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 074980D623D8D8520005A4B3 /* Heap.cpp */; };
+		0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0784705823E7027E007F2EA6 /* BinaryTree.cpp */; };
+		07C8C606232F6229005DBA4A /* mainc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C605232F6229005DBA4A /* mainc.swift */; };
 		07C8C60D232F623A005DBA4A /* DoubleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C60C232F623A005DBA4A /* DoubleStack.swift */; };
 		07C8C60F232F6360005DBA4A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C60E232F6360005DBA4A /* Queue.swift */; };
 		07C8C611232F6881005DBA4A /* QueueArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C610232F6881005DBA4A /* QueueArray.swift */; };
@@ -26,8 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		074980D523D8D8520005A4B3 /* Structures-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Structures-Bridging-Header.h"; sourceTree = "<group>"; };
+		074980D623D8D8520005A4B3 /* Heap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Heap.cpp; sourceTree = "<group>"; };
+		0784705823E7027E007F2EA6 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		07C8C602232F6229005DBA4A /* Structures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Structures; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C8C605232F6229005DBA4A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		07C8C605232F6229005DBA4A /* mainc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainc.swift; sourceTree = "<group>"; };
 		07C8C60C232F623A005DBA4A /* DoubleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleStack.swift; sourceTree = "<group>"; };
 		07C8C60E232F6360005DBA4A /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		07C8C610232F6881005DBA4A /* QueueArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueArray.swift; sourceTree = "<group>"; };
@@ -63,8 +68,11 @@
 		07C8C604232F6229005DBA4A /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				07C8C605232F6229005DBA4A /* main.swift */,
+				07C8C605232F6229005DBA4A /* mainc.swift */,
 				07C8C612232F7228005DBA4A /* Queue */,
+				074980D623D8D8520005A4B3 /* Heap.cpp */,
+				0784705823E7027E007F2EA6 /* BinaryTree.cpp */,
+				074980D523D8D8520005A4B3 /* Structures-Bridging-Header.h */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 				TargetAttributes = {
 					07C8C601232F6229005DBA4A = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -136,10 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C8C606232F6229005DBA4A /* main.swift in Sources */,
+				07C8C606232F6229005DBA4A /* mainc.swift in Sources */,
 				07C8C60F232F6360005DBA4A /* Queue.swift in Sources */,
+				0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */,
 				07C8C60D232F623A005DBA4A /* DoubleStack.swift in Sources */,
 				07C8C611232F6881005DBA4A /* QueueArray.swift in Sources */,
+				074980D723D8D8520005A4B3 /* Heap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,9 +275,17 @@
 		07C8C60A232F6229005DBA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Structures/Structures-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -274,9 +293,16 @@
 		07C8C60B232F6229005DBA4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Structures/Structures-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
