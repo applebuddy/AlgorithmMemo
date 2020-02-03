@@ -80,24 +80,9 @@
 
 ## ✓ 정렬_알고리즘
 
-<br>
-
-### 퀵정렬 알고리즘(sort())
-- 분할정복 알고리즘, O(nlogn)의 복잡도를 가진다.
-- swift, C++ 전부 sorting 메서드를 지원한다.
-  - swift : sorted()로 정렬 지원
-  - C++ : sort(시작주소,끝주소,정렬방식)으로 지원
-    - 퀵소트 + 힙소트 방식의 정렬함수
-- 메서드 기본 기능은 오름차순 정렬이다.
-  
-- Swift 구현 예시 ▼
-~~~ swift 
-// 오름차순 정렬
-prices.sorted()
-~~~
+### 내장 정렬함수
 
 <br>
-
 - C++ 구현 예시 ▼
 ~~~ C++
 // 내림차순 정렬 {최댓값....최솟값}
@@ -144,7 +129,48 @@ sort(contests.begin(), contests.end(),
              return con1[0] > con2[0];
          });
 ~~~
+<br>
 
+### 퀵정렬 알고리즘(QuickSort Algorithm)
+- 분할정복 알고리즘, O(nlogn)의 복잡도를 가진다.
+- swift, C++ 전부 sorting 메서드를 지원한다.
+  - swift : sorted()로 정렬 지원
+  - C++ : sort(시작주소,끝주소,정렬방식)으로 지원
+    - 퀵소트 + 힙소트 방식의 정렬함수
+- 메서드 기본 기능은 오름차순 정렬이다.
+  
+- Swift 퀵소트(QuickSort)구현 예시 ▼
+~~~ swift 
+import Foundation
+
+func quickSort(_ arr: inout [Int], _ start: Int, _ end: Int) {
+    if start >= end { return }
+    let key = start
+    var left = start + 1
+    var right = end
+    while left <= right {
+        while left <= end, arr[left] <= arr[key] {
+            left += 1
+        }
+        
+        while right > start, arr[right] >= arr[key] {
+            right -= 1
+        }
+        
+        if left > right {
+            arr.swapAt(key, right)
+        } else {
+            arr.swapAt(left, right)
+        }
+    }
+    quickSort(&arr, start, right-1)
+    quickSort(&arr, right+1, end)
+}
+
+var arr = [0,9,3,1,5,4,2,6,9,7,8,0,2]
+quickSort(&arr, 0, arr.count-1) // RESULT : [0, 0, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+print(arr)
+~~~
 
 <br>
 
