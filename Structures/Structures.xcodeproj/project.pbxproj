@@ -10,6 +10,7 @@
 		074980D723D8D8520005A4B3 /* Heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 074980D623D8D8520005A4B3 /* Heap.cpp */; };
 		0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0784705823E7027E007F2EA6 /* BinaryTree.cpp */; };
 		07A672CC23E83219006AE0C7 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A672CB23E83219006AE0C7 /* LinkedList.swift */; };
+		07A672D123E8371D006AE0C7 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A672D023E8371D006AE0C7 /* BinaryTree.swift */; };
 		07C8C606232F6229005DBA4A /* mainc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C605232F6229005DBA4A /* mainc.swift */; };
 		07C8C60D232F623A005DBA4A /* DoubleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C60C232F623A005DBA4A /* DoubleStack.swift */; };
 		07C8C60F232F6360005DBA4A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8C60E232F6360005DBA4A /* Queue.swift */; };
@@ -33,6 +34,7 @@
 		074980D623D8D8520005A4B3 /* Heap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Heap.cpp; sourceTree = "<group>"; };
 		0784705823E7027E007F2EA6 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		07A672CB23E83219006AE0C7 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		07A672D023E8371D006AE0C7 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		07C8C602232F6229005DBA4A /* Structures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Structures; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C8C605232F6229005DBA4A /* mainc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainc.swift; sourceTree = "<group>"; };
 		07C8C60C232F623A005DBA4A /* DoubleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleStack.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				0784705823E7027E007F2EA6 /* BinaryTree.cpp */,
+				07A672D023E8371D006AE0C7 /* BinaryTree.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A672D123E8371D006AE0C7 /* BinaryTree.swift in Sources */,
 				07C8C606232F6229005DBA4A /* mainc.swift in Sources */,
 				07C8C60F232F6360005DBA4A /* Queue.swift in Sources */,
 				0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */,
