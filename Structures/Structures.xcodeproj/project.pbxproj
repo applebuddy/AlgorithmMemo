@@ -51,6 +51,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07A672CD23E8368C006AE0C7 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				07C8C60C232F623A005DBA4A /* DoubleStack.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		07A672CE23E836A1006AE0C7 /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				074980D623D8D8520005A4B3 /* Heap.cpp */,
+			);
+			path = Heap;
+			sourceTree = "<group>";
+		};
+		07A672CF23E836AC006AE0C7 /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				0784705823E7027E007F2EA6 /* BinaryTree.cpp */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
 		07C8C5F9232F6229005DBA4A = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +95,11 @@
 			isa = PBXGroup;
 			children = (
 				07C8C605232F6229005DBA4A /* mainc.swift */,
+				07A672CB23E83219006AE0C7 /* LinkedList.swift */,
+				07A672CF23E836AC006AE0C7 /* Tree */,
+				07A672CE23E836A1006AE0C7 /* Heap */,
+				07A672CD23E8368C006AE0C7 /* Stack */,
 				07C8C612232F7228005DBA4A /* Queue */,
-				074980D623D8D8520005A4B3 /* Heap.cpp */,
-				0784705823E7027E007F2EA6 /* BinaryTree.cpp */,
 				074980D523D8D8520005A4B3 /* Structures-Bridging-Header.h */,
 			);
 			path = Structures;
@@ -83,9 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				07C8C60E232F6360005DBA4A /* Queue.swift */,
-				07A672CB23E83219006AE0C7 /* LinkedList.swift */,
 				07C8C610232F6881005DBA4A /* QueueArray.swift */,
-				07C8C60C232F623A005DBA4A /* DoubleStack.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
