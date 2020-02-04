@@ -141,34 +141,38 @@ sort(contests.begin(), contests.end(),
   
 - Swift 퀵소트(QuickSort)구현 예시 ▼
 ~~~ swift 
-import Foundation
+// MARK: QuickSort Implementation
 
-func quickSort(_ arr: inout [Int], _ start: Int, _ end: Int) {
-    if start >= end { return }
-    let key = start
-    var left = start + 1
-    var right = end
-    while left <= right {
-        while left <= end, arr[left] <= arr[key] {
-            left += 1
+extension Array where Element == Int {
+    mutating func quickSort(_ start: Int, _ end: Int) 
+    {
+        if start >= end { return }
+        let key = start
+        var left = start + 1
+        var right = end
+        while left <= right {
+            while left <= end, self[left] <= self[key] {
+                left += 1
+            }
+            
+            while right > start, self[right] >= self[key] {
+                right -= 1
+            }
+            
+            if left > right {
+                self.swapAt(key, right)
+            } else {
+                self.swapAt(left, right)
+            }
         }
         
-        while right > start, arr[right] >= arr[key] {
-            right -= 1
-        }
-        
-        if left > right {
-            arr.swapAt(key, right)
-        } else {
-            arr.swapAt(left, right)
-        }
+        quickSort(start, right - 1)
+        quickSort(right + 1, end)
     }
-    quickSort(&arr, start, right-1)
-    quickSort(&arr, right+1, end)
 }
 
-var arr = [0,9,3,1,5,4,2,6,9,7,8,0,2]
-quickSort(&arr, 0, arr.count-1) // RESULT : [0, 0, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+var arr = [1,9,2,8,3,7,4,7,5,0,2]
+arr.quickSort(0, arr.count-1) // [0,1,2,2,3,4,5,7,7,8,9]
 print(arr)
 ~~~
 
