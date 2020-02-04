@@ -6,7 +6,7 @@
 //  Copyright © 2020 MinKyeongTae. All rights reserved.
 //
 
-// MARK: LinkedList
+// MARK: LinkedList Structure Implementation by Swift
 
 // MARK: - 기본 연결리스트 구조 구현 복습
 
