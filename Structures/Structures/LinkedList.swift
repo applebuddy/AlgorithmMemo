@@ -8,40 +8,40 @@
 
 // MARK: LinkedList Structure Implementation by Swift
 
-// MARK: - 기본 연결리스트 구조 구현 복습
+// MARK: - 기본 연결리스트 노드 구조 구현 복습
 
 // Basic LinkedList Structure
 /*
-import Foundation
+ import Foundation
 
-class LLNode<T> {
-    var value: Int
-    var next: LLNode?
-    
-    init(_ value: Int, _ next: LLNode? = nil) {
-        self.value = value
-        self.next = next
-    }
-}
+ class LLNode<T> {
+ var value: Int
+ var next: LLNode?
 
-extension LLNode: CustomStringConvertible {
-    var description: String {
-        guard let next = self.next else {
-            return "\(self.value)"
-        }
-        
-        return "\(self.value) -> \(next.description)"
-    }
-}
+ init(_ value: Int, _ next: LLNode? = nil) {
+     self.value = value
+     self.next = next
+ }
+ }
 
-var node5 = LLNode<Int>(5)
-var node4 = LLNode<Int>(4, node5)
-var node3 = LLNode<Int>(3, node4)
-var node2 = LLNode<Int>(2, node3)
-var node1 = LLNode<Int>(1, node2)
+ extension LLNode: CustomStringConvertible {
+ var description: String {
+     guard let next = self.next else {
+         return "\(self.value)"
+     }
 
-print(node1.description)
-*/
+     return "\(self.value) -> \(next.description)"
+ }
+ }
+
+ var node5 = LLNode<Int>(5)
+ var node4 = LLNode<Int>(4, node5)
+ var node3 = LLNode<Int>(3, node4)
+ var node2 = LLNode<Int>(2, node3)
+ var node1 = LLNode<Int>(1, node2)
+
+ print(node1.description)
+ */
 
 // MARK: - 기본 연결리스트 구조 구현
 
