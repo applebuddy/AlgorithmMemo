@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		074980D723D8D8520005A4B3 /* Heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 074980D623D8D8520005A4B3 /* Heap.cpp */; };
+		0775B93823E9B1910050EF75 /* LinkedList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775B93723E9B1910050EF75 /* LinkedList2.swift */; };
 		0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0784705823E7027E007F2EA6 /* BinaryTree.cpp */; };
 		07A672CC23E83219006AE0C7 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A672CB23E83219006AE0C7 /* LinkedList.swift */; };
 		07A672D123E8371D006AE0C7 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A672D023E8371D006AE0C7 /* BinaryTree.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		074980D523D8D8520005A4B3 /* Structures-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Structures-Bridging-Header.h"; sourceTree = "<group>"; };
 		074980D623D8D8520005A4B3 /* Heap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Heap.cpp; sourceTree = "<group>"; };
+		0775B93723E9B1910050EF75 /* LinkedList2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList2.swift; sourceTree = "<group>"; };
 		0784705823E7027E007F2EA6 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		07A672CB23E83219006AE0C7 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		07A672D023E8371D006AE0C7 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				07C8C605232F6229005DBA4A /* mainc.swift */,
 				07A672CB23E83219006AE0C7 /* LinkedList.swift */,
+				0775B93723E9B1910050EF75 /* LinkedList2.swift */,
 				07A672CF23E836AC006AE0C7 /* Tree */,
 				07A672CE23E836A1006AE0C7 /* Heap */,
 				07A672CD23E8368C006AE0C7 /* Stack */,
@@ -180,6 +183,7 @@
 				07C8C60F232F6360005DBA4A /* Queue.swift in Sources */,
 				0784705923E7027E007F2EA6 /* BinaryTree.cpp in Sources */,
 				07C8C60D232F623A005DBA4A /* DoubleStack.swift in Sources */,
+				0775B93823E9B1910050EF75 /* LinkedList2.swift in Sources */,
 				07C8C611232F6881005DBA4A /* QueueArray.swift in Sources */,
 				074980D723D8D8520005A4B3 /* Heap.cpp in Sources */,
 				07A672CC23E83219006AE0C7 /* LinkedList.swift in Sources */,
