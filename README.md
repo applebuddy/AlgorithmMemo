@@ -144,36 +144,41 @@ sort(contests.begin(), contests.end(),
 ~~~ swift 
 // MARK: QuickSort Implementation
 
+import Foundation
+
 extension Array where Element == Int {
-    mutating func quickSort(_ start: Int, _ end: Int) 
-    {
+    mutating func quickSort(_ start: Int, _ end: Int) {
         if start >= end { return }
-        let key = start
-        var left = start + 1
+        let pivot = start
+        var left = pivot + 1
         var right = end
         while left <= right {
-            while left <= end, self[left] <= self[key] {
+            while left <= end && self[left] <= self[pivot] {
                 left += 1
             }
             
-            while right > start, self[right] >= self[key] {
+            while right > 0 && self[right] > self[pivot] {
                 right -= 1
             }
             
-            if left > right {
-                self.swapAt(key, right)
+            if left <= right {
+                let temp = self[left]
+                self[left] = self[right]
+                self[right] = temp
             } else {
-                self.swapAt(left, right)
+                let temp = self[right]
+                self[right] = self[pivot]
+                self[pivot] = temp
             }
         }
         
-        quickSort(start, right - 1)
-        quickSort(right + 1, end)
+        quickSort(start, right-1)
+        quickSort(right+1, end)
     }
 }
 
-var arr = [1,9,2,8,3,7,4,7,5,0,2]
-arr.quickSort(0, arr.count-1) // [0,1,2,2,3,4,5,7,7,8,9]
+var arr = [1,3,2,4,5,7,6,9,8,0,2,3,5,1,0,21,0]
+arr.quickSort(0, arr.count-1)
 print(arr)
 ~~~
 
